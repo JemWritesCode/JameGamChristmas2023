@@ -1,2 +1,2 @@
 # JameGamChristmas2023
-Jame Gam Christmas Edition 2023 - Creating a game in 6 days for a game jam.
+The Jame Gam Christmas Edition 2023 is a game jam -- a challenge to create a game within 6 days.
