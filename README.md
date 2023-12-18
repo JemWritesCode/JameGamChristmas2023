@@ -11,3 +11,19 @@ Our submission for the Jame Gam Christmas Edition 2023 -- a challenge to create 
  - [JemWritesCode](https://github.com/JemWritesCode) 
  - [Redseiko](https://github.com/redseiko)
  - [iesuzume](https://github.com/iesuzume)
+
+## First-time Setup
+
+### TextMeshPro
+
+  * Window > Package Manager > Plus Dropdown > Add package by name...
+    * Name: `com.unity.textmeshpro`
+    * Version: `3.2.0-pre.6`
+  * Window > TextMeshPro > Import TMP Essential Resources
+
+### DOTween
+
+  * Window > Package Manager > DOTween (HOTween v2) > Import
+  * DOTween Utility Panel
+    * Setup DOTween > Apply
+    * Create ASMDef > OK
