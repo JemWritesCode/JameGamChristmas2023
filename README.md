@@ -27,3 +27,8 @@ Our submission for the Jame Gam Christmas Edition 2023 -- a challenge to create 
   * DOTween Utility Panel
     * Setup DOTween > Apply
     * Create ASMDef > OK
+
+### UI Effect
+
+  * Window > Package Manager > Plus Dropdown > Add package from git URL...
+    * URL: `https://github.com/redseiko/UIEffect.git`
