@@ -1,2 +1,5 @@
 # Visual Studio cache directory
 .vs/
+
+# Private Assets folder
+/JameGamUnityProject/Assets/JameGamChristmas2023Assets
