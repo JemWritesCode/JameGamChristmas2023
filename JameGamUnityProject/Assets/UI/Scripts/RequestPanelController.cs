@@ -1,14 +1,29 @@
 using DG.Tweening;
 
+using TMPro;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace JameGam.UI {
-  public class RequestPanelController : MonoBehaviour {
+  public sealed class RequestPanelController : MonoBehaviour {
     [field: SerializeField, Header("Panel")]
     public RectTransform Panel { get; private set; }
 
     [field: SerializeField]
     public CanvasGroup PanelCanvasGroup { get; private set; }
+
+    [field: SerializeField]
+    public TMP_Text PanelTitle { get; private set; }
+
+    [field: SerializeField, Header("Product")]
+    public RectTransform ProductTransform { get; private set; }
+
+    [field: SerializeField]
+    public Image ProductBackdrop { get; private set; }
+
+    [field: SerializeField]
+    public Image ProductIcon { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
 
@@ -20,7 +35,6 @@ namespace JameGam.UI {
       PanelCanvasGroup.alpha = 0f;
       PanelCanvasGroup.blocksRaycasts = false;
       IsPanelVisible = false;
-
     }
 
     public void ShowPanel() {

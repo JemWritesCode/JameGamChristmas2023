@@ -309,7 +309,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5285291860523626496}
+  - {fileID: 1456161905238461910}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -479,12 +479,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &5285291860523626496 stripped
+--- !u!224 &1456161905238461910 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
-  m_PrefabInstance: {fileID: 5663757326275163692}
+  m_PrefabInstance: {fileID: 4820212001142969867}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5663757326275163692
+--- !u!1001 &4820212001142969867
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -498,35 +498,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 600
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 525
+      value: 325
       objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_LocalPosition.x
