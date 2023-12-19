@@ -207,6 +207,8 @@ GameObject:
   - component: {fileID: 6533850933717400570}
   - component: {fileID: 5583216820642408364}
   - component: {fileID: 4595760386854128657}
+  - component: {fileID: 4162427023227824123}
+  - component: {fileID: 5779024340848581664}
   m_Layer: 5
   m_Name: RequestPanel
   m_TagString: Untagged
@@ -276,6 +278,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4162427023227824123
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359976087256371237}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5779024340848581664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359976087256371237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ff2eff7905ee94c915b47084d176a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Panel>k__BackingField: {fileID: 0}
+  <PanelCanvasGroup>k__BackingField: {fileID: 4162427023227824123}
 --- !u!1 &2520177530852556911
 GameObject:
   m_ObjectHideFlags: 0

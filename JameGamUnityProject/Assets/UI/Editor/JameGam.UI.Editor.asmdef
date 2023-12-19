@@ -1,8 +1,8 @@
 {
-    "name": "JameGam.UI",
-    "rootNamespace": "JameGam.UI",
+    "name": "JameGam.UI.Editor",
+    "rootNamespace": "JameGam.UI.Editor",
     "references": [
-        "GUID:5cfc4cb106b890d499115d8f77fc96ff"
+        "GUID:66c0ba3be419c5548a9bd967787f62b1"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
