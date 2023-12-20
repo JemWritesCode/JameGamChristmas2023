@@ -126,10 +126,10 @@ TextureImporter:
       name: 9slice1024-paper-0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 25
         y: 15
-        width: 980
-        height: 1000
+        width: 975
+        height: 995
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 75, y: 75, z: 75, w: 75}

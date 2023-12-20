@@ -31,6 +31,10 @@ namespace JameGam.UI {
       ResetPanel();
     }
 
+    private void Start() {
+      ShowPanel(); // TODO: delete me.
+    }
+
     public void ResetPanel() {
       PanelCanvasGroup.alpha = 0f;
       PanelCanvasGroup.blocksRaycasts = false;
