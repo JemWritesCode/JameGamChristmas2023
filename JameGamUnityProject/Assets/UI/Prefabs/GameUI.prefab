@@ -114,22 +114,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RequestPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 5018882020308558041, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5018882020308558041, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5018882020308558041, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5018882020308558041, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6533850933717400570, guid: 4bc4e9b85e547bc4695bb3632d957083, type: 3}
       propertyPath: m_Pivot.x
       value: 0
