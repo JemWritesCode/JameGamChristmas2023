@@ -25,6 +25,12 @@ namespace JameGam.UI {
     [field: SerializeField]
     public Image ProductIcon { get; private set; }
 
+    [field: SerializeField, Header("Parts")]
+    public RectTransform PartsRow { get; private set; }
+
+    [field: SerializeField]
+    public GameObject PartSlot { get; private set; }
+
     public bool IsPanelVisible { get; private set; }
 
     private void Awake() {
