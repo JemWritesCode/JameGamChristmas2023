@@ -1,7 +1,10 @@
 {
     "name": "JameGam",
     "rootNamespace": "JameGam",
-    "references": [],
+    "references": [
+        "Unity.TextMeshPro",
+        "DOTween.Modules"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
