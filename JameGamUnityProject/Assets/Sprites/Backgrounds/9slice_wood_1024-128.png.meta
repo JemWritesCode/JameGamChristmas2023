@@ -152,7 +152,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9-Sliced
+      name: 9slice-wood
       rect:
         serializedVersion: 2
         x: 0
@@ -223,7 +223,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      9-Sliced: -5177388603050735206
+      9slice-wood: -5177388603050735206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

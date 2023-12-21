@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9slice1024-paper-0
+      name: 9slice-paper
       rect:
         serializedVersion: 2
         x: 25
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      9slice1024-paper-0: 125912597
+      9slice-paper: 125912597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
