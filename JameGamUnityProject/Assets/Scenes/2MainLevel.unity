@@ -4498,29 +4498,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 815866167}
     m_Modifications:
-    - target: {fileID: 207381291586760511, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+    - target: {fileID: 5310113914991925494, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310113914991925494, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 207381291586760511, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
+    - target: {fileID: 5583478727107682232, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2155681034452431900, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+    - target: {fileID: 5583478727107682232, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2155681034452431900, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2155681034452431900, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 2155681034452431900, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30
+    - target: {fileID: 5583478727107682232, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5626560715750918415, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
       propertyPath: m_Pivot.x
@@ -4605,10 +4601,6 @@ PrefabInstance:
     - target: {fileID: 7609673915814802246, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
       propertyPath: m_Name
       value: GameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7609673915814802246, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
