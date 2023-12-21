@@ -40,7 +40,8 @@ namespace JameGam.UI {
     }
 
     private void Start() {
-      ShowPanel(); // TODO: delete me.
+      SetPartSlots(2);
+      ShowPanel();
     }
 
     public void ResetPanel() {
@@ -82,14 +83,12 @@ namespace JameGam.UI {
       ClearPartSlots();
 
       for (int i = 0; i < count; i++) {
-        PartSlotController partSlot = Instantiate(PartSlotTemplate, PartsRow);
+        PartSlotController partSlot = Instantiate(PartSlotTemplate, PartsRow.transform);
         partSlot.gameObject.SetActive(true);
-
         PartSlots.Add(partSlot);
       }
 
-      float width = 225f + (count > 2 ? ((count - 2) * 75f) : 0f);
-      Panel.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+      Panel.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, CalculatePanelWidth());
     }
 
     private void ClearPartSlots() {
@@ -98,6 +97,25 @@ namespace JameGam.UI {
       }
 
       PartSlots.Clear();
+    }
+
+    [field: SerializeField, Header("PanelSizing")]
+    public float PanelWidthMinimum { get; private set; } = 200f;
+
+    [field: SerializeField]
+    public float PartsRowPadding { get; private set; } = 50f;
+
+    [field: SerializeField]
+    public float PartSlotWidth { get; private set; } = 60f;
+
+    [field: SerializeField]
+    public float PartSlotSpacing { get; private set; } = 10f;
+
+    private float CalculatePanelWidth() {
+      int slotCount = PartSlots.Count;
+      float slotSpacing = Mathf.Max(slotCount - 1, 0) * PartSlotSpacing;
+
+      return Mathf.Max(PanelWidthMinimum, (slotCount * PartSlotWidth) + slotSpacing + PartsRowPadding);
     }
   }
 }

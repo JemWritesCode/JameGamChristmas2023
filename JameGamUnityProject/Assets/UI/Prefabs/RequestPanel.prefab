@@ -234,6 +234,10 @@ MonoBehaviour:
   <PartsRow>k__BackingField: {fileID: 6341706311393045417}
   <PartSlotTemplate>k__BackingField: {fileID: 267674236634952067}
   <PartSlots>k__BackingField: []
+  <PanelWidthMinimum>k__BackingField: 200
+  <PartsRowPadding>k__BackingField: 50
+  <PartSlotWidth>k__BackingField: 60
+  <PartSlotSpacing>k__BackingField: 10
 --- !u!1 &4547436328375346384
 GameObject:
   m_ObjectHideFlags: 0
