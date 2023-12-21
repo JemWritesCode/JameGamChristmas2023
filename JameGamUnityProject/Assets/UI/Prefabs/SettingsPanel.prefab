@@ -539,7 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3621512578051470029}
   m_Layer: 5
-  m_Name: Handle Slide Area
+  m_Name: HandleArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 6964079426908433022}
   - component: {fileID: 1700773080902673125}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Panel>k__BackingField: {fileID: 5842071760501291456}
   <PanelCanvasGroup>k__BackingField: {fileID: 3438071586138349423}
+  <AudioVolumeSlider>k__BackingField: {fileID: 4653823294849589121}
 --- !u!1 &7450481921672217214
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 420488593749628117}
   m_Layer: 5
-  m_Name: Fill Area
+  m_Name: FillArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1059,7 +1060,7 @@ GameObject:
   - component: {fileID: 6249865292881693618}
   - component: {fileID: 3351482743497780001}
   m_Layer: 5
-  m_Name: Row
+  m_Name: AudioVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

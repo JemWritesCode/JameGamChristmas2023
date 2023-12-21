@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace JameGam {
   public sealed class AudioManager : MonoBehaviour {
-    [field: SerializeField]
-    public AudioListener AudioListener { get; private set; }
-
     private static AudioManager _instance;
 
     public static AudioManager Instance {

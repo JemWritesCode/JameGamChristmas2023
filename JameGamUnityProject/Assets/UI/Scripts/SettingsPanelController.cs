@@ -1,6 +1,7 @@
 using DG.Tweening;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace JameGam.UI {
   public sealed class SettingsPanelController : MonoBehaviour {
@@ -9,6 +10,9 @@ namespace JameGam.UI {
 
     [field: SerializeField]
     public CanvasGroup PanelCanvasGroup { get; private set; }
+
+    [field: SerializeField, Header("Audio Volume")]
+    public Slider AudioVolumeSlider { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
 
@@ -44,6 +48,10 @@ namespace JameGam.UI {
             PanelCanvasGroup.blocksRaycasts = false;
             IsPanelVisible = false;
           });
+    }
+
+    public void OnAudioVolumeSliderChanged(float value) {
+      AudioListener.volume = value;
     }
   }
 }

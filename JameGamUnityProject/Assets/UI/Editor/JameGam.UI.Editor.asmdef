@@ -2,7 +2,7 @@
     "name": "JameGam.UI.Editor",
     "rootNamespace": "JameGam.UI.Editor",
     "references": [
-        "JameGam.UI"
+        "JameGam"
     ],
     "includePlatforms": [
         "Editor"
