@@ -49,8 +49,11 @@ namespace JameGam
             }
             if (other.gameObject.tag == "crate") //on the object you want to pick up set the tag to be anything, in this case "object"
             {
+                // jemdebug: this is triggering multiple times, need to only instantiate once when space is hit
+                Debug.Log("testtest");
                 canpickup = true;  //set the pick up bool to true
-                ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+                ObjectIwantToPickUp = other.gameObject.GetComponent<Spawner>().itemToSpawn; //set the gameobject you collided with to one you can reference
+                ObjectIwantToPickUp = Instantiate(ObjectIwantToPickUp);
             }
 
         }
