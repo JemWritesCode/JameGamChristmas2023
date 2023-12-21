@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using DG.Tweening;
 
 using TMPro;
@@ -29,7 +31,7 @@ namespace JameGam.UI {
     public RectTransform PartsRow { get; private set; }
 
     [field: SerializeField]
-    public GameObject PartSlot { get; private set; }
+    public PartSlotController PartSlotTemplate { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
 
@@ -45,6 +47,8 @@ namespace JameGam.UI {
       PanelCanvasGroup.alpha = 0f;
       PanelCanvasGroup.blocksRaycasts = false;
       IsPanelVisible = false;
+
+      PartSlotTemplate.gameObject.SetActive(false);
     }
 
     public void ShowPanel() {
@@ -69,6 +73,31 @@ namespace JameGam.UI {
             PanelCanvasGroup.blocksRaycasts = false;
             IsPanelVisible = false;
           });
+    }
+
+    [field: SerializeReference]
+    public List<PartSlotController> PartSlots { get; private set; } = new();
+
+    public void SetPartSlots(int count) {
+      ClearPartSlots();
+
+      for (int i = 0; i < count; i++) {
+        PartSlotController partSlot = Instantiate(PartSlotTemplate, PartsRow);
+        partSlot.gameObject.SetActive(true);
+
+        PartSlots.Add(partSlot);
+      }
+
+      float width = 225f + (count > 2 ? ((count - 2) * 75f) : 0f);
+      Panel.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+    }
+
+    private void ClearPartSlots() {
+      for (int i = 0; i < PartSlots.Count; i++) {
+        Destroy(PartSlots[i].gameObject);
+      }
+
+      PartSlots.Clear();
     }
   }
 }

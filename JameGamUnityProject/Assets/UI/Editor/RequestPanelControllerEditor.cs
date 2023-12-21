@@ -31,6 +31,22 @@ namespace JameGam.UI.Editor {
       }
 
       GUILayout.EndHorizontal();
+
+      PartSlotControls();
+    }
+
+    private void PartSlotControls() {
+      GUILayout.BeginHorizontal("PartSlotControls", GUI.skin.window);
+
+      using (new EditorGUI.DisabledScope(!Application.isPlaying)) {
+        int count = EditorGUILayout.IntSlider(_controller.PartSlots.Count, 0, 4);
+
+        if (count != _controller.PartSlots.Count) {
+          _controller.SetPartSlots(count);
+        }
+      }
+
+      GUILayout.EndHorizontal();
     }
   }
 }

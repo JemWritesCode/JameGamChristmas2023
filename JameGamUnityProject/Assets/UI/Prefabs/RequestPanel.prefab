@@ -232,7 +232,8 @@ MonoBehaviour:
   <ProductBackdrop>k__BackingField: {fileID: 3879523800099301777}
   <ProductIcon>k__BackingField: {fileID: 6104902769108568291}
   <PartsRow>k__BackingField: {fileID: 6341706311393045417}
-  <PartSlot>k__BackingField: {fileID: 4843981744344553917}
+  <PartSlotTemplate>k__BackingField: {fileID: 267674236634952067}
+  <PartSlots>k__BackingField: []
 --- !u!1 &4547436328375346384
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5018882020308558041}
   - component: {fileID: 7347666923076499148}
+  - component: {fileID: 267674236634952067}
   m_Layer: 5
   m_Name: PartSlot
   m_TagString: Untagged
@@ -366,6 +368,21 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &267674236634952067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4843981744344553917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdc8f9eafdb1244796eff094588db1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PartSlot>k__BackingField: {fileID: 5018882020308558041}
+  <SlotBackdrop>k__BackingField: {fileID: 4417138693177535666}
+  <SlotIcon>k__BackingField: {fileID: 5177973289731795615}
 --- !u!1 &5509663743249286724
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,9 +634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skateboard
-
-'
+  m_text: Product
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27835780b04661f46b8aaceeb69a6f1f, type: 2}
   m_sharedMaterial: {fileID: 2642548403459339284, guid: 27835780b04661f46b8aaceeb69a6f1f, type: 2}
