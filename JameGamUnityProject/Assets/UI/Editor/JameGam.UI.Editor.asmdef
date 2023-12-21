@@ -2,9 +2,11 @@
     "name": "JameGam.UI.Editor",
     "rootNamespace": "JameGam.UI.Editor",
     "references": [
-        "GUID:66c0ba3be419c5548a9bd967787f62b1"
+        "JameGam.UI"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
