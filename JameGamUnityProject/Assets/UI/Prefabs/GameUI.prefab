@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6612459889421207275, guid: 433d5ae8dab405548b1f65554890ffd4, type: 3}
       propertyPath: m_Name
-      value: GameMenuPanel
+      value: SettingsPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
