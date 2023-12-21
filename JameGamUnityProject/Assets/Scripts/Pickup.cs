@@ -47,6 +47,12 @@ namespace JameGam
                 canpickup = true;  //set the pick up bool to true
                 ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             }
+            if (other.gameObject.tag == "crate") //on the object you want to pick up set the tag to be anything, in this case "object"
+            {
+                canpickup = true;  //set the pick up bool to true
+                ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+            }
+
         }
         private void OnTriggerExit(Collider other)
         {
