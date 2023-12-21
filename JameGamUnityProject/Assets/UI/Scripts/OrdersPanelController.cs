@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using DG.Tweening;
 
 using UnityEngine;
@@ -53,6 +55,15 @@ namespace JameGam.UI {
             PanelCanvasGroup.blocksRaycasts = false;
             IsPanelVisible = false;
           });
+    }
+
+    public List<RequestPanelController> ProductRequests { get; private set; }
+
+    public RequestPanelController AddProductRequest() {
+      RequestPanelController request = Instantiate(RequestPanelTemplate, Panel.transform);
+      request.gameObject.SetActive(true);
+
+      return request;
     }
   }
 }
