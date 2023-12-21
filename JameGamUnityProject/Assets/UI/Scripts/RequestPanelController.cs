@@ -76,7 +76,6 @@ namespace JameGam.UI {
           });
     }
 
-    [field: SerializeReference]
     public List<PartSlotController> PartSlots { get; private set; } = new();
 
     public void SetPartSlots(int count) {
