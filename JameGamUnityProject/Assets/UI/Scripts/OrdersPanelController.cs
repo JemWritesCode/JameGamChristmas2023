@@ -59,9 +59,23 @@ namespace JameGam.UI {
 
     public List<RequestPanelController> ProductRequests { get; private set; }
 
-    public RequestPanelController AddProductRequest() {
+    public RequestPanelController AddProductRequest(
+        string productTitle,
+        Sprite productIcon,
+        Sprite[] requestPartIcons) {
       RequestPanelController request = Instantiate(RequestPanelTemplate, Panel.transform);
+
+      request.ProductTitle.text = productTitle;
+      request.ProductIcon.sprite = productIcon;
+      request.SetPartSlots(requestPartIcons.Length);
+
+      for (int i = 0; i < requestPartIcons.Length; i++) {
+        PartSlotController partSlot = request.PartSlots[i];
+        partSlot.SlotIcon.sprite = requestPartIcons[i];
+      }
+
       request.gameObject.SetActive(true);
+      request.ShowPanel();
 
       return request;
     }

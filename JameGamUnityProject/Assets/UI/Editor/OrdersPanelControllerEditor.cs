@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 using UnityEditor;
 
 using UnityEngine;
@@ -40,16 +43,32 @@ namespace JameGam.UI.Editor {
       GUILayout.EndHorizontal();
     }
 
+    string _productTitle = string.Empty;
+    Sprite _productIcon;
+    readonly Sprite[] _requestPartIcons = new Sprite[4];
+
     private void DrawProductRequestControls() {
-      GUILayout.BeginHorizontal("Product Request Controls", GUI.skin.window);
+      GUILayout.BeginVertical("Product Request Controls", GUI.skin.window);
+
+      _productTitle = EditorGUILayout.TextField("ProductTitle", _productTitle);
+      _productIcon = SingleLineObjectField("ProductIcon", _productIcon);
+
+      for (int i = 0; i < _requestPartIcons.Length; i++) {
+        _requestPartIcons[i] = SingleLineObjectField($"PartIcon{i + 1}", _requestPartIcons[i]);
+      }
 
       using (new EditorGUI.DisabledScope(!Application.isPlaying)) {
         if (GUILayout.Button("Add Request")) {
-          _controller.AddProductRequest();
+          _controller.AddProductRequest(_productTitle, _productIcon, _requestPartIcons.Where(icon => icon).ToArray());
         }
       }
 
-      GUILayout.EndHorizontal();
+      GUILayout.EndVertical();
+    }
+
+    private T SingleLineObjectField<T>(string fieldLabel, T value) where T : Object {
+      return (T) EditorGUILayout.ObjectField(
+          fieldLabel, value, typeof(T), true, GUILayout.Height(EditorGUIUtility.singleLineHeight));
     }
   }
 }

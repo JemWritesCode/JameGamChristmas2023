@@ -15,11 +15,11 @@ namespace JameGam.UI {
     [field: SerializeField]
     public CanvasGroup PanelCanvasGroup { get; private set; }
 
-    [field: SerializeField]
-    public TMP_Text PanelTitle { get; private set; }
-
     [field: SerializeField, Header("Product")]
     public RectTransform ProductTransform { get; private set; }
+
+    [field: SerializeField]
+    public TMP_Text ProductTitle { get; private set; }
 
     [field: SerializeField]
     public Image ProductBackdrop { get; private set; }
@@ -37,11 +37,6 @@ namespace JameGam.UI {
 
     private void Awake() {
       ResetPanel();
-    }
-
-    private void Start() {
-      SetPartSlots(2);
-      ShowPanel();
     }
 
     public void ResetPanel() {
