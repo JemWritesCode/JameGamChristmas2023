@@ -1003,6 +1003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4768212490427958792, guid: b8df1d4e62d049e4d80d3c6fe3354b05, type: 3}
+      propertyPath: <SettingsPanel>k__BackingField
+      value: 
+      objectReference: {fileID: 1975985347}
     - target: {fileID: 8318806663074609037, guid: b8df1d4e62d049e4d80d3c6fe3354b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4607,6 +4611,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+--- !u!114 &1975985347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7966082419546155103, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+  m_PrefabInstance: {fileID: 1975985346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b150611f7d3f76b40bd4a07d0028ad05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1978886561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2922107563029984134, guid: 55320ad6284175349b1008aaf7238c7a, type: 3}
