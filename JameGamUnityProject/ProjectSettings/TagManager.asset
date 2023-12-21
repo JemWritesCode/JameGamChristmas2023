@@ -6,6 +6,7 @@ TagManager:
   tags:
   - object
   - crate
+  - CounterTile
   layers:
   - Default
   - TransparentFX

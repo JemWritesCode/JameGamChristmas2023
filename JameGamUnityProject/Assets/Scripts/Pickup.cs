@@ -7,48 +7,59 @@ namespace JameGam
     public class Pickup : MonoBehaviour
     {
         public GameObject myHands; 
-        GameObject ObjectIwantToPickUp; 
-        [SerializeField] bool hasItem;  
-        [SerializeField] bool canpickup; 
+        GameObject ObjectIwantToPickUp;
+        GameObject CounterCollider;
+        [SerializeField] bool hasItem = false;  
+        [SerializeField] bool canpickup = false; 
         [SerializeField] bool isCrate = false;
-        void Start()
-        {
-            canpickup = false;    
-            hasItem = false;
-        }
+        [SerializeField] bool isNextToCounter = false;
 
         void Update()
         {
-            //Pickup
             if (Input.GetKeyDown(KeyCode.Space))  
             {
-                if (hasItem == true)  //Putdown
+                if (hasItem == true)
                 {
-                    Debug.Log("Putting object down");
-                    //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;
-                    ObjectIwantToPickUp.transform.parent = null; // make the object not be a child of the hands
-                    ObjectIwantToPickUp.transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
-                    hasItem = false;
+                    PutdownItem();
                 }
-                else //Pickup
+                else
                 {
-                    if (canpickup == true) 
-                    {
-                        Debug.Log("Picking object up");
-                        if (isCrate)
-                        {
-                            ObjectIwantToPickUp = Instantiate(ObjectIwantToPickUp);
-                            isCrate = false;
-                        }
-                        //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = false;   //makes the rigidbody not be acted upon by forces
-                        ObjectIwantToPickUp.transform.position = myHands.transform.position;
-                        ObjectIwantToPickUp.transform.parent = myHands.transform; 
-                        hasItem = true;
-                    }
+                    PickupItem();
                 }
             }
-            
         }
+
+        private void PickupItem()
+        {
+            if (canpickup == true && hasItem == false)
+            {
+                Debug.Log("Picking object up");
+                if (isCrate)
+                {
+                    ObjectIwantToPickUp = Instantiate(ObjectIwantToPickUp);
+                    isCrate = false;
+                }
+                //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = false;   //makes the rigidbody not be acted upon by forces
+                ObjectIwantToPickUp.transform.position = myHands.transform.position;
+                ObjectIwantToPickUp.transform.parent = myHands.transform;
+                hasItem = true;
+            }
+        }
+
+        private void PutdownItem()
+        {
+            Debug.Log("Putting object down");
+            ObjectIwantToPickUp.transform.parent = null; // make the object not be a child of the hands
+            ObjectIwantToPickUp.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            if (isNextToCounter)
+            {
+                // this works ok but obvs not right spot ObjectIwantToPickUp.transform.position = CounterCollider.transform.position; //parent.Find("ObjectPlacer").transform.position;
+                ObjectIwantToPickUp.transform.position = CounterCollider.transform.parent.Find("ObjectPlacer").transform.position;
+            }
+            //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;
+            hasItem = false;
+        }
+
         private void OnTriggerEnter(Collider other) 
         {
             if (other.gameObject.tag == "object") 
@@ -62,18 +73,17 @@ namespace JameGam
                 canpickup = true;  
                 ObjectIwantToPickUp = other.gameObject.GetComponent<Spawner>().itemToSpawn;
             }
+            if (other.gameObject.tag == "CounterTile")
+            {
+                isNextToCounter = true;
+                CounterCollider = other.gameObject; 
+            }
 
         }
         private void OnTriggerExit(Collider other)
         {
             canpickup = false;
-
-        }
-
-        private void putOnCounterTile()
-        {
-            //need to check if they're near a "tile" (via collision trigger box?)
-            // put it on the ObjectPlacer
+            isNextToCounter = false;
         }
     }
 }
