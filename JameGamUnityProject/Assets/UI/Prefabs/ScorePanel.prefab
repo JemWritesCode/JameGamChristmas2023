@@ -66,6 +66,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Panel>k__BackingField: {fileID: 5961728874781434481}
   <PanelCanvasGroup>k__BackingField: {fileID: 9095236292827098876}
+  <ScoreLabel>k__BackingField: {fileID: 4862116516328275504}
+  <ScoreIcon>k__BackingField: {fileID: 1892448456712291345}
 --- !u!1 &3161631070656274951
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +248,7 @@ GameObject:
   - component: {fileID: 7381901979364473076}
   - component: {fileID: 4862116516328275504}
   m_Layer: 5
-  m_Name: ScoreNumber
+  m_Name: ScoreLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

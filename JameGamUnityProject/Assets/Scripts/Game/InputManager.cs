@@ -8,7 +8,7 @@ namespace JameGam{
     public SettingsPanelController SettingsPanel { get; private set; }
 
     [field: SerializeField, Header("KeyBinds")]
-    public KeyCode ToggleMenuKey { get; private set; } = KeyCode.F2;
+    public KeyCode ToggleMenuKey { get; private set; } = KeyCode.P;
 
     private void Update() {
       if (Input.GetKeyDown(ToggleMenuKey)) {
