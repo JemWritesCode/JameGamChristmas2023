@@ -3822,18 +3822,6 @@ PrefabInstance:
       value: Anvil
       objectReference: {fileID: 0}
     - target: {fileID: 9148070394923274749, guid: 09f8b104ff3957b4a988647b4acb56a3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0088122
-      objectReference: {fileID: 0}
-    - target: {fileID: 9148070394923274749, guid: 09f8b104ff3957b4a988647b4acb56a3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.0088122
-      objectReference: {fileID: 0}
-    - target: {fileID: 9148070394923274749, guid: 09f8b104ff3957b4a988647b4acb56a3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0088122
-      objectReference: {fileID: 0}
-    - target: {fileID: 9148070394923274749, guid: 09f8b104ff3957b4a988647b4acb56a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95
       objectReference: {fileID: 0}
