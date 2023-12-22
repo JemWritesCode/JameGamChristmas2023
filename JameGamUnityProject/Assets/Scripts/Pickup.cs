@@ -86,6 +86,7 @@ namespace JameGam
         {
             canpickup = false;
             isNextToCounter = false;
+            isCrate = false;
         }
 
         private bool checkIfHoldingItem()
