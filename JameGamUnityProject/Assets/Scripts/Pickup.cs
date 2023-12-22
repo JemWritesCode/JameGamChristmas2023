@@ -8,6 +8,7 @@ namespace JameGam
     {
         public GameObject myHands; 
         [SerializeField] GameObject ObjectIwantToPickUp;
+        [SerializeField] GameObject itemBeingHeld;
         GameObject CounterCollider;
         [SerializeField] bool hasItem = false;  
         [SerializeField] bool canpickup = false; 
@@ -18,20 +19,22 @@ namespace JameGam
         {
             if (Input.GetKeyDown(KeyCode.Space))  
             {
-                if (hasItem == true)
+                if (checkIfHoldingItem() == true)
                 {
                     PutdownItem();
                 }
                 else
                 {
+                    Debug.Log("here");
                     PickupItem();
                 }
+                hasItem = checkIfHoldingItem();
             }
         }
 
         private void PickupItem()
         {
-            if (canpickup == true && hasItem == false)
+            if (canpickup == true && checkIfHoldingItem() == false)
             {
                 Debug.Log("Picking object up");
                 if (isCrate)
@@ -42,22 +45,21 @@ namespace JameGam
                 //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = false;   //makes the rigidbody not be acted upon by forces
                 ObjectIwantToPickUp.transform.position = myHands.transform.position;
                 ObjectIwantToPickUp.transform.parent = myHands.transform;
-                hasItem = true;
             }
         }
 
         private void PutdownItem()
         {
             Debug.Log("Putting object down");
-            ObjectIwantToPickUp.transform.parent = null; // make the object not be a child of the hands
-            ObjectIwantToPickUp.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            itemBeingHeld = checkItemBeingHeld();
+            itemBeingHeld.transform.parent = null; // make the object not be a child of the hands
+            itemBeingHeld.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             if (isNextToCounter)
             {
                 // this works ok but obvs not right spot ObjectIwantToPickUp.transform.position = CounterCollider.transform.position; //parent.Find("ObjectPlacer").transform.position;
                 ObjectIwantToPickUp.transform.position = CounterCollider.transform.parent.Find("ObjectPlacer").transform.position;
             }
             //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;
-            hasItem = false;
         }
 
         private void OnTriggerEnter(Collider other) 
@@ -84,6 +86,16 @@ namespace JameGam
         {
             canpickup = false;
             isNextToCounter = false;
+        }
+
+        private bool checkIfHoldingItem()
+        {
+            return gameObject.transform.Find("basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig L Clavicle/basic_rig L UpperArm/basic_rig L Forearm/basic_rig L Hand/HandHolder").transform.childCount > 0;
+        }
+
+        private GameObject checkItemBeingHeld()
+        {
+            return gameObject.transform.Find("basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig L Clavicle/basic_rig L UpperArm/basic_rig L Forearm/basic_rig L Hand/HandHolder").transform.GetChild(0).gameObject;
         }
     }
 }
