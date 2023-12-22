@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 6964079426908433022}
   - component: {fileID: 1700773080902673125}
   - component: {fileID: 3399674045024958320}
+  - component: {fileID: 6463413965715328470}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -713,6 +714,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DoScaleEndValue>k__BackingField: {x: 1.025, y: 1.025, z: 1.025}
   <DoScaleDuration>k__BackingField: 0.25
+--- !u!114 &6463413965715328470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155645654408514173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f6fe096fd41dc46b7ff4b93a86e6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SfxAudioSource>k__BackingField: {fileID: 1459818683959510889}
+  <OnHoverSfx>k__BackingField: {fileID: 8300000, guid: 200172ac13441504590dfa1a373d70ff, type: 3}
 --- !u!1 &6612459889421207275
 GameObject:
   m_ObjectHideFlags: 0

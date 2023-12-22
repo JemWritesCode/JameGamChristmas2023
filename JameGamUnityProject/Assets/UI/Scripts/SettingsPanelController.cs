@@ -38,12 +38,10 @@ namespace JameGam.UI {
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
 
-      SfxAudio.clip = ShowPanelSfx;
-
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
-          .InsertCallback(0f, () => SfxAudio.Play())
+          .InsertCallback(0f, () => SfxAudio.PlayOneShot(ShowPanelSfx))
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = true;
             IsPanelVisible = true;
@@ -53,12 +51,10 @@ namespace JameGam.UI {
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
 
-      SfxAudio.clip = HidePanelSfx;
-
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
-          .InsertCallback(0f, () => SfxAudio.Play())
+          .InsertCallback(0f, () => SfxAudio.PlayOneShot(HidePanelSfx))
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = false;
             IsPanelVisible = false;
