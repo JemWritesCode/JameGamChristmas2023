@@ -11,6 +11,15 @@ namespace JameGam.UI {
     [field: SerializeField]
     public CanvasGroup PanelCanvasGroup { get; private set; }
 
+    [field: SerializeField, Header("SFX")]
+    public AudioSource SfxAudio { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip ShowPanelSfx { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip HidePanelSfx { get; private set; }
+
     [field: SerializeField, Header("Audio Volume")]
     public Slider AudioVolumeSlider { get; private set; }
 
@@ -29,9 +38,12 @@ namespace JameGam.UI {
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
 
+      SfxAudio.clip = ShowPanelSfx;
+
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
+          .InsertCallback(0f, () => SfxAudio.Play())
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = true;
             IsPanelVisible = true;
@@ -41,9 +53,12 @@ namespace JameGam.UI {
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
 
+      SfxAudio.clip = HidePanelSfx;
+
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
+          .InsertCallback(0f, () => SfxAudio.Play())
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = false;
             IsPanelVisible = false;
