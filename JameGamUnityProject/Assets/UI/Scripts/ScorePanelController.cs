@@ -17,7 +17,13 @@ namespace JameGam.UI {
     public TMP_Text ScoreLabel { get; private set; }
 
     [field: SerializeField]
-    public Image ScoreIcon { get; private set; }  
+    public Image ScoreIcon { get; private set; }
+
+    [field: SerializeField, Header("Sfx")]
+    public AudioSource SfxAudioSource { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip ScoreIncreaseSfx { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
     public int CurrentScore { get; private set; }
@@ -70,7 +76,8 @@ namespace JameGam.UI {
           .SetTarget(ScoreLabel)
           .Insert(0f, ScoreLabel.DOCounter(CurrentScore, targetScore, 1f))
           .Insert(0f, ScoreLabel.transform.DOPunchPosition(new(0f, 2.5f, 0f), 1.25f, 3, 1))
-          .Insert(0f, ScoreIcon.transform.DOPunchScale(Vector3.one * 0.15f, 1.25f, 5, 0f));
+          .Insert(0f, ScoreIcon.transform.DOPunchScale(Vector3.one * 0.15f, 1.25f, 5, 0f))
+          .InsertCallback(0f, () => SfxAudioSource.PlayOneShot(ScoreIncreaseSfx));
 
       CurrentScore = targetScore;
     }
