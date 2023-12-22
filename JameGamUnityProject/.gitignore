@@ -86,7 +86,17 @@ crashlytics-build.properties
 /[Aa]ssets/[Pp]lugins/Demigiant*
 
 # Ignore TextMeshPro initial assets
-/[Aa]ssets/[Tt]ext[Mm]esh*[Pp]ro*
+[Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/*
+
+# Setup for excluding certain assets in Resources
+![Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Resources.meta
+![Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Resources/
+[Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Resources/*
+
+# Exclude certain assets from being ignored
+![Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Resources/Style Sheets**
+![Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Resources/TMP Settings*
+
 
 ######################## ETC ########################
 
