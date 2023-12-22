@@ -1,3 +1,5 @@
+using System;
+
 using DG.Tweening;
 
 using TMPro;
@@ -23,7 +25,6 @@ namespace JameGam.UI {
     public AudioSource SfxAudioSource { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
-    public float CurrentTimer { get; private set; }
 
     private void Awake() {
       ResetPanel();
@@ -37,9 +38,7 @@ namespace JameGam.UI {
       PanelCanvasGroup.alpha = 0f;
       PanelCanvasGroup.blocksRaycasts = false;
       IsPanelVisible = false;
-
       TimerLabel.text = "-:--";
-      CurrentTimer = 0f;
     }
 
     public void ShowPanel() {
@@ -64,6 +63,42 @@ namespace JameGam.UI {
             PanelCanvasGroup.blocksRaycasts = false;
             IsPanelVisible = false;
           });
+    }
+
+    public void StartTimer(float timeInSeconds) {
+      TimerLabel.DOComplete(withCallbacks: true);
+      SetCurrentTimer(timeInSeconds);
+
+      DOTween
+          .To(GetCurrentTimer, SetCurrentTimer, 0f, timeInSeconds)
+          .SetEase(Ease.Linear)
+          .SetTarget(TimerLabel);
+    }
+
+    private readonly char[] _timerLabelChars = new char[5];
+    private float _currentTimer = 0f;
+
+    private float GetCurrentTimer() {
+      return _currentTimer;
+    }
+
+    private void SetCurrentTimer(float timeInSeconds) {
+      _currentTimer = timeInSeconds;
+
+      SecondsToCharArray(_currentTimer, _timerLabelChars);
+      TimerLabel.SetText(_timerLabelChars);
+    }
+
+    // https://forum.unity.com/threads/ui-timer-without-garbage-collection-possible.663874/#post-5816905
+    private void SecondsToCharArray(float timeInSeconds, char[] array) {
+      int minutes = (int) (timeInSeconds / 60f);
+      array[0] = (char) (48 + (minutes / 10));
+      array[1] = (char) (48 + (minutes % 10));
+      array[2] = ':';
+
+      int seconds = (int) (timeInSeconds - minutes * 60);
+      array[3] = (char) (48 + seconds / 10);
+      array[4] = (char) (48 + seconds % 10);
     }
   }
 }

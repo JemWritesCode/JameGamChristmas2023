@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SfxAudioSource>k__BackingField: {fileID: 1459818683959510889}
-  <OnHoverSfx>k__BackingField: {fileID: 8300000, guid: 6f0363ba1eace864795eb0c5e085f9b2, type: 3}
+  <OnHoverSfx>k__BackingField: {fileID: 8300000, guid: 4f44b17bfc44131419213a4b78f42dfa, type: 3}
 --- !u!1 &6612459889421207275
 GameObject:
   m_ObjectHideFlags: 0
