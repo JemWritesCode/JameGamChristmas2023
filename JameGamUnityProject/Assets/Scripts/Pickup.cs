@@ -7,7 +7,7 @@ namespace JameGam
     public class Pickup : MonoBehaviour
     {
         public GameObject myHands; 
-        GameObject ObjectIwantToPickUp;
+        [SerializeField] GameObject ObjectIwantToPickUp;
         GameObject CounterCollider;
         [SerializeField] bool hasItem = false;  
         [SerializeField] bool canpickup = false; 
