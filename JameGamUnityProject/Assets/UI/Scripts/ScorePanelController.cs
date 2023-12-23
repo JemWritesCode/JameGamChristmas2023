@@ -25,6 +25,9 @@ namespace JameGam.UI {
     [field: SerializeField]
     public AudioClip ScoreIncreaseSfx { get; private set; }
 
+    [field: SerializeField]
+    public AudioClip ScoreIconClickedSfx { get; private set; }
+
     public bool IsPanelVisible { get; private set; }
     public int CurrentScore { get; private set; }
 
@@ -47,25 +50,25 @@ namespace JameGam.UI {
 
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
+      IsPanelVisible = true;
 
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = true;
-            IsPanelVisible = true;
           });
     }
 
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
+      IsPanelVisible = false;
 
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = false;
-            IsPanelVisible = false;
           });
     }
 
@@ -74,12 +77,21 @@ namespace JameGam.UI {
 
       DOTween.Sequence()
           .SetTarget(ScoreLabel)
-          .Insert(0f, ScoreLabel.DOCounter(CurrentScore, targetScore, 1f))
-          .Insert(0f, ScoreLabel.transform.DOPunchPosition(new(0f, 2.5f, 0f), 1.25f, 3, 1))
-          .Insert(0f, ScoreIcon.transform.DOPunchScale(Vector3.one * 0.15f, 1.25f, 5, 0f))
+          .Insert(0f, ScoreLabel.DOCounter(CurrentScore, targetScore, 0.5f))
+          .Insert(0f, ScoreLabel.transform.DOPunchPosition(new(0f, 2.5f, 0f), 1f, 3, 1f))
+          .Insert(0f, ScoreIcon.transform.DOPunchScale(Vector3.one * 0.15f, 1f, 5, 0f))
           .Insert(0f, SfxAudioSource.DOPlayOneShot(ScoreIncreaseSfx));
 
       CurrentScore = targetScore;
+    }
+
+    public void OnScoreIconClicked() {
+      ScoreIcon.DOComplete(withCallbacks: true);
+
+      DOTween.Sequence()
+          .SetTarget(ScoreIcon)
+          .Insert(0f, ScoreIcon.transform.DOPunchScale(Vector3.one * 0.15f, 0.5f, 10, 1f))
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(ScoreIconClickedSfx));
     }
   }
 }

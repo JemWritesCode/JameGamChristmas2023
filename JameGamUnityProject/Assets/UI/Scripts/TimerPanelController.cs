@@ -21,9 +21,16 @@ namespace JameGam.UI {
     [field: SerializeField]
     public Image TimerIcon { get; private set; }
 
-    [field: SerializeField, Header("Sfx")]
+    [field: SerializeField, Header("SFX")]
     public AudioSource SfxAudioSource { get; private set; }
 
+    [field: SerializeField]
+    public AudioClip StartTimerSfx { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip TimerIconClickedSfx { get; private set; }
+
+    public float CurrentTimer { get; private set; }
     public bool IsPanelVisible { get; private set; }
 
     private void Awake() {
@@ -38,54 +45,51 @@ namespace JameGam.UI {
       PanelCanvasGroup.alpha = 0f;
       PanelCanvasGroup.blocksRaycasts = false;
       IsPanelVisible = false;
+
       TimerLabel.text = "-:--";
+      CurrentTimer = 0f;
     }
 
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
+      IsPanelVisible = true;
 
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = true;
-            IsPanelVisible = true;
           });
     }
 
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
+      IsPanelVisible = false;
 
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
           .OnComplete(() => {
             PanelCanvasGroup.blocksRaycasts = false;
-            IsPanelVisible = false;
           });
     }
 
     public void StartTimer(float timeInSeconds) {
       TimerLabel.DOComplete(withCallbacks: true);
-      SetCurrentTimer(timeInSeconds);
 
-      DOTween
-          .To(GetCurrentTimer, SetCurrentTimer, 0f, timeInSeconds)
-          .SetEase(Ease.Linear)
-          .SetTarget(TimerLabel);
+      DOVirtual
+          .Float(timeInSeconds, 0f, timeInSeconds, SetCurrentTimer)
+          .SetTarget(TimerLabel)
+          .SetEase(Ease.Linear);
+
+      SfxAudioSource.PlayOneShot(StartTimerSfx);
     }
 
     private readonly char[] _timerLabelChars = new char[5];
-    private float _currentTimer = 0f;
-
-    private float GetCurrentTimer() {
-      return _currentTimer;
-    }
 
     private void SetCurrentTimer(float timeInSeconds) {
-      _currentTimer = timeInSeconds;
-
-      SecondsToCharArray(_currentTimer, _timerLabelChars);
+      CurrentTimer = timeInSeconds;
+      SecondsToCharArray(CurrentTimer, _timerLabelChars);
       TimerLabel.SetText(_timerLabelChars);
     }
 
@@ -99,6 +103,16 @@ namespace JameGam.UI {
       int seconds = (int) (timeInSeconds - minutes * 60);
       array[3] = (char) (48 + seconds / 10);
       array[4] = (char) (48 + seconds % 10);
+    }
+
+    public void OnTimerIconClicked() {
+      TimerIcon.DOComplete(withCallbacks: true);
+
+      DOTween.Sequence()
+          .SetTarget(TimerIcon)
+          .Insert(0f, TimerIcon.transform.DOPunchScale(Vector3.one * 0.15f, 0.5f, 10, 1f))
+          .Insert(0f, TimerIcon.transform.DORotate(new(0f, 0f, -15f), 0.5f).SetRelative(true))
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(TimerIconClickedSfx));
     }
   }
 }

@@ -50,6 +50,7 @@ namespace JameGam.UI {
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
           .Insert(0f, DialogImage.transform.DOPunchScale(Vector3.one * 0.05f, 0.5f, 0, 0f))
+          .Insert(0f, DialogText.transform.DOMoveY(10f, 0.5f).From(isRelative: true))
           .Insert(0f, SfxAudioSource.DOPlayOneShot(ShowPanelSfx));
     }
 
@@ -62,6 +63,10 @@ namespace JameGam.UI {
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
+    }
+
+    public void OnConfirmButtonClicked() {
+      HidePanel();
     }
   }
 }
