@@ -37,8 +37,12 @@ namespace JameGam {
     }
 
     private void FixedUpdate() {
-      ClosestInteractable =
+      Interactable interactable =
           CanInteract && InteractAgent ? GetClosestInteractable(InteractAgent.transform, InteractRange) : default;
+
+      if (interactable != ClosestInteractable) {
+        ClosestInteractable = interactable;
+      }
     }
 
     readonly RaycastHit[] _raycastHits = new RaycastHit[20];
@@ -66,9 +70,10 @@ namespace JameGam {
       Array.Sort(_hitDistanceCache, _raycastHits, 0, count);
 
       for (int i = 0; i < count; i++) {
-        if (_raycastHits[i].collider.TryGetComponent(out Interactable interactable)
-            && interactable.enabled
-            && _raycastHits[i].distance <= interactable.InteractRange) {
+        RaycastHit raycastHit = _raycastHits[i];
+        Interactable interactable = raycastHit.collider.GetComponentInParent<Interactable>();
+
+        if (interactable && interactable.enabled && raycastHit.distance <= interactable.InteractRange) {
           return interactable;
         }
       }

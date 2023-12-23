@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc0023a836b1bf4dbf0060c51ec95ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InteractAgent>k__BackingField: {fileID: 0}
+  <InteractRange>k__BackingField: 1.5
+  <CanInteract>k__BackingField: 1
+  <ClosestInteractable>k__BackingField: {fileID: 0}
