@@ -35,6 +35,14 @@ namespace JameGam.UI {
       IsPanelVisible = false;
     }
 
+    public void TogglePanel() {
+      if (IsPanelVisible) {
+        HidePanel();
+      } else {
+        ShowPanel();
+      }
+    }
+
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
       IsPanelVisible = true;

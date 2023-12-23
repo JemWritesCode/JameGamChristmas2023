@@ -12,11 +12,7 @@ namespace JameGam{
 
     private void Update() {
       if (Input.GetKeyDown(ToggleMenuKey)) {
-        if (SettingsPanel.IsPanelVisible) {
-          SettingsPanel.HidePanel();
-        } else {
-          SettingsPanel.ShowPanel();
-        }
+        SettingsPanel.TogglePanel();
       }
     }
   }
