@@ -1,22 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace JameGam {
   public class Interactable : MonoBehaviour {
-    public static readonly int ColorShaderId = Shader.PropertyToID("_Color");
-
-    [field: SerializeField]
+    [field: SerializeField, Header("Interact")]
     public float InteractRange { get; set; } = 2f;
 
     [field: SerializeField]
     public string InteractText { get; set; } = string.Empty;
 
-    [field: SerializeField]
+    [field: SerializeField, Header("Highlight")]
     public MeshRenderer HighlightRenderer { get; set; }
 
-    private void Awake() {
-      if (!HighlightRenderer) {
-        HighlightRenderer = GetComponentInChildren<MeshRenderer>();
-      }
+    [Header("Events"), Space(10)]
+    public UnityEvent OnInteract;
+
+    public void Interact() {
+      OnInteract?.Invoke();
     }
   }
 }
