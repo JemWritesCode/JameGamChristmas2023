@@ -26,6 +26,9 @@ namespace JameGam.UI {
     public AudioClip SantaIntroSfx { get; private set; }
 
     [field: SerializeField]
+    public AudioClip SantaClickedSfx { get; private set; }
+
+    [field: SerializeField]
     public AudioClip AnvilIntroSfx { get; private set; }
 
     private void Awake() {
@@ -43,6 +46,15 @@ namespace JameGam.UI {
           .Insert(2f, SfxAudioSource.DOPlayOneShot(AnvilIntroSfx))
           .Insert(2f, Anvil.DOFade(1f, 1f).From(0f, true))
           .SetEase(Ease.InOutQuad);
+    }
+
+    public void OnSantaClicked() {
+      Santa.DOComplete(withCallbacks: true);
+
+      DOTween.Sequence()
+          .SetTarget(Santa)
+          .Insert(0f, Santa.transform.DOPunchScale(Vector3.one * 0.025f, 0.5f, 10, 1f))
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(SantaClickedSfx));
     }
   }
 }
