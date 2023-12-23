@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace JameGam {
   public sealed class GameManager : MonoBehaviour {
+    [field: SerializeField, Header("Player")]
+    public GameObject CurrentPlayer { get; private set; }
+
     static GameManager _instance;
 
     public static GameManager Instance {
