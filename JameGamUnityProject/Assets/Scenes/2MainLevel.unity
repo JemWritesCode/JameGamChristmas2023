@@ -1723,10 +1723,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4768212490427958792, guid: b8df1d4e62d049e4d80d3c6fe3354b05, type: 3}
-      propertyPath: <SettingsPanel>k__BackingField
-      value: 
-      objectReference: {fileID: 1975985347}
     - target: {fileID: 8318806663074609037, guid: b8df1d4e62d049e4d80d3c6fe3354b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4864,6 +4860,9 @@ MonoBehaviour:
   <InteractRange>k__BackingField: 1.5
   <InteractText>k__BackingField: Anvil
   <HighlightRenderer>k__BackingField: {fileID: 709574938}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &711990109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7975,6 +7974,9 @@ MonoBehaviour:
   <InteractRange>k__BackingField: 1.5
   <InteractText>k__BackingField: Anvil
   <HighlightRenderer>k__BackingField: {fileID: 1218086343}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1219028778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9583,6 +9585,9 @@ MonoBehaviour:
   <InteractRange>k__BackingField: 1.5
   <InteractText>k__BackingField: Spray Red
   <HighlightRenderer>k__BackingField: {fileID: 10659793}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1570692332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6392261808716518001, guid: 35f03eadcda65a741af75d0fe9f7bb61, type: 3}
@@ -11782,11 +11787,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cda7687928e5174ea2627e48a3c6d69, type: 3}
---- !u!1 &1835697443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1824340380413090, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
-  m_PrefabInstance: {fileID: 1757313251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1836203100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12605,17 +12605,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
---- !u!114 &1975985347 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7966082419546155103, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
-  m_PrefabInstance: {fileID: 1975985346}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b150611f7d3f76b40bd4a07d0028ad05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1978886561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2922107563029984134, guid: 55320ad6284175349b1008aaf7238c7a, type: 3}
@@ -13852,6 +13841,9 @@ MonoBehaviour:
   <InteractRange>k__BackingField: 1.5
   <InteractText>k__BackingField: Workbench
   <HighlightRenderer>k__BackingField: {fileID: 5385137656525568040}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &5583441654880169416
 Transform:
   m_ObjectHideFlags: 0
@@ -13876,10 +13868,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 815866167}
     m_Modifications:
-    - target: {fileID: 2406934289574938710, guid: 564f7cb6ac99bb745bc5a2b6f19a665a, type: 3}
-      propertyPath: <InteractAgent>k__BackingField
-      value: 
-      objectReference: {fileID: 1835697443}
     - target: {fileID: 3601875962614898604, guid: 564f7cb6ac99bb745bc5a2b6f19a665a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14169,6 +14157,9 @@ MonoBehaviour:
   <InteractRange>k__BackingField: 1.5
   <InteractText>k__BackingField: Spray Blue
   <HighlightRenderer>k__BackingField: {fileID: 4492892261973869810}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &9040100467049760545
 BoxCollider:
   m_ObjectHideFlags: 0
