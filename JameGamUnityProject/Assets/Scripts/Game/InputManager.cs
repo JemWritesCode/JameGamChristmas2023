@@ -8,6 +8,26 @@ namespace JameGam{
     [field: SerializeField]
     public KeyCode InteractKey { get; private set; } = KeyCode.Space;
 
+    static InputManager _instance;
+
+    public static InputManager Instance {
+      get {
+        if (!_instance) {
+          _instance = FindObjectOfType<InputManager>();
+        }
+
+        return _instance;
+      }
+    }
+
+    private void Awake() {
+      if (_instance) {
+        Destroy(this);
+      } else {
+        _instance = this;
+      }
+    }
+
     private void Update() {
       if (Input.GetKeyDown(ToggleMenuKey)) {
         OnToggleMenuKey();

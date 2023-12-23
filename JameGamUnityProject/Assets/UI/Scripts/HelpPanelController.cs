@@ -53,5 +53,13 @@ namespace JameGam.UI {
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
     }
+
+    public void OnSettingsButtonClicked() {
+      InputManager.Instance.OnToggleMenuKey();
+    }
+
+    public void OnInteractButtonClicked() {
+      InputManager.Instance.OnInteractKey();
+    }
   }
 }
