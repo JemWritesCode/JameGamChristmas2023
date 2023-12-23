@@ -1,5 +1,3 @@
-using Coffee.UIEffects;
-
 using DG.Tweening;
 
 using UnityEngine;
@@ -36,7 +34,10 @@ namespace JameGam.UI {
     }
 
     public void AnimateIntro() {
+      DOTween.Complete(gameObject, withCallbacks: true);
+
       DOTween.Sequence()
+          .SetTarget(gameObject)
           .Insert(0f, Background.DOFade(1f, 0.5f).From(0f, true))
           .Insert(0.5f, Mountains.DOFade(1f, 1f).From(0f, true))
           .Insert(0.5f, Santa.transform.DOPunchPosition(new(75f, 0f, 0f), 1.5f, 0, 0f))
