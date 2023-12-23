@@ -20,7 +20,7 @@ MonoBehaviour:
     m_PointSize: 50
     m_Scale: 1
     m_UnitsPerEM: 1000
-    m_LineHeight: 60
+    m_LineHeight: 55
     m_AscentLine: 50
     m_CapLine: 35
     m_MeanLine: 25

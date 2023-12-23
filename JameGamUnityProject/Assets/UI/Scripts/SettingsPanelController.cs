@@ -39,6 +39,8 @@ namespace JameGam.UI {
       Panel.DOComplete(withCallbacks: true);
       IsPanelVisible = true;
 
+      AudioVolumeSlider.SetValueWithoutNotify(AudioListener.volume);
+
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))

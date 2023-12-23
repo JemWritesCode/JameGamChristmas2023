@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace JameGam.UI {
-  public sealed class ButtonOnHover : MonoBehaviour, IPointerEnterHandler {
+  public sealed class SfxOnHover : MonoBehaviour, IPointerEnterHandler {
     [field: SerializeField]
     public AudioSource SfxAudioSource { get; private set; }
 
