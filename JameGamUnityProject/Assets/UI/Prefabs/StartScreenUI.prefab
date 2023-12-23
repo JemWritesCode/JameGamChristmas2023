@@ -581,6 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d837aca3d20a4794d97c58efc6c972a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Background>k__BackingField: {fileID: 3407600204771543106}
+  <Mountains>k__BackingField: {fileID: 1084031312500739890}
   <Santa>k__BackingField: {fileID: 7190394142618295872}
   <Anvil>k__BackingField: {fileID: 4329263924828438279}
   <SfxAudioSource>k__BackingField: {fileID: 7023209007938285658}
@@ -598,6 +600,7 @@ GameObject:
   - component: {fileID: 7559012884222659699}
   - component: {fileID: 3407600204771543106}
   - component: {fileID: 8321688168456917042}
+  - component: {fileID: 7279579107837394931}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -676,6 +679,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 4
   m_AspectRatio: 1.7777778
+--- !u!114 &7279579107837394931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894449530464525713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectFactor: 0
+  m_Width: 0.75
+  m_Rotation: -90
+  m_Softness: 1
+  m_Brightness: 0.75
+  m_Gloss: 1
+  m_EffectArea: 0
+  m_Player:
+    play: 1
+    initialPlayDelay: 3
+    duration: 8
+    loop: 1
+    loopDelay: 1.5
+    updateMode: 0
 --- !u!1 &8288244472119228594
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0.5455662
+  m_EffectFactor: 0.5960864
   m_Width: 0.25
   m_Rotation: 135
   m_Softness: 1
@@ -863,8 +892,8 @@ MonoBehaviour:
   m_EffectArea: 0
   m_Player:
     play: 1
-    initialPlayDelay: 0
+    initialPlayDelay: 3
     duration: 2.5
     loop: 1
-    loopDelay: 0
+    loopDelay: 2.5
     updateMode: 0
