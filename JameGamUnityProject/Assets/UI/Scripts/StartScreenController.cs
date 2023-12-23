@@ -36,10 +36,10 @@ namespace JameGam.UI {
       DOTween.Sequence()
           .Insert(0f, Background.DOFade(1f, 0.5f).From(0f, true))
           .Insert(0.5f, Mountains.DOFade(1f, 1f).From(0f, true))
-          .Insert(0.5f, Santa.transform.DOPunchPosition(new(75f, 0f, 0f), 1.5f, 0, 0))
+          .Insert(0.5f, Santa.transform.DOPunchPosition(new(75f, 0f, 0f), 1.5f, 0, 0f))
           .Insert(1.0f, SfxAudioSource.DOPlayOneShot(SantaIntroSfx))
           .Insert(1.0f, Santa.DOFade(1f, 1f).From(0f, true))
-          .Insert(1.5f, Anvil.transform.DOPunchPosition(new(0f, -75f, 0f), 1.5f, 0, 0))
+          .Insert(1.5f, Anvil.transform.DOPunchPosition(new(0f, -75f, 0f), 1.5f, 0, 0f))
           .Insert(2f, SfxAudioSource.DOPlayOneShot(AnvilIntroSfx))
           .Insert(2f, Anvil.DOFade(1f, 1f).From(0f, true))
           .SetEase(Ease.InOutQuad);

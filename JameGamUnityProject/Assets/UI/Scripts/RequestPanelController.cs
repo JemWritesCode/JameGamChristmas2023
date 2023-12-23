@@ -50,25 +50,25 @@ namespace JameGam.UI {
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
 
+      PanelCanvasGroup.blocksRaycasts = true;
+      IsPanelVisible = true;
+
       DOTween.Sequence()
           .SetTarget(Panel)
-          .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
-          .OnComplete(() => {
-            PanelCanvasGroup.blocksRaycasts = true;
-            IsPanelVisible = true;
-          });
+          .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f).From(0f, true))
+          .Insert(0.15f, ProductTitle.DOFade(1f, 0.5f).From(0f, true))
+          .Insert(0.25f, ProductIcon.DOFade(1f, 0.5f).From(0f, true));
     }
 
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
 
+      PanelCanvasGroup.blocksRaycasts = false;
+      IsPanelVisible = false;
+
       DOTween.Sequence()
           .SetTarget(Panel)
-          .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
-          .OnComplete(() => {
-            PanelCanvasGroup.blocksRaycasts = false;
-            IsPanelVisible = false;
-          });
+          .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
     }
 
     public List<PartSlotController> PartSlots { get; private set; } = new();

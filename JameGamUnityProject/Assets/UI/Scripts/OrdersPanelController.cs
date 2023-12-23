@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace JameGam.UI {
   public sealed class OrdersPanelController : MonoBehaviour {
-    [field: SerializeField, Header("OrdersPanel")]
+    [field: SerializeField, Header("Panel")]
     public RectTransform Panel { get; private set; }
 
     [field: SerializeField]
@@ -14,6 +14,12 @@ namespace JameGam.UI {
 
     [field: SerializeField, Header("RequestPanel")]
     public RequestPanelController RequestPanelTemplate { get; private set; }
+
+    [field: SerializeField, Header("SFX")]
+    public AudioSource SfxAudioSource { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip AddRequestSfx { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
 
@@ -36,25 +42,23 @@ namespace JameGam.UI {
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
 
+      PanelCanvasGroup.blocksRaycasts = true;
+      IsPanelVisible = true;
+
       DOTween.Sequence()
           .SetTarget(Panel)
-          .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
-          .OnComplete(() => {
-            PanelCanvasGroup.blocksRaycasts = true;
-            IsPanelVisible = true;
-          });
+          .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f));
     }
 
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
 
+      PanelCanvasGroup.blocksRaycasts = false;
+      IsPanelVisible = false;
+
       DOTween.Sequence()
           .SetTarget(Panel)
-          .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
-          .OnComplete(() => {
-            PanelCanvasGroup.blocksRaycasts = false;
-            IsPanelVisible = false;
-          });
+          .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
     }
 
     public List<RequestPanelController> ProductRequests { get; private set; }
@@ -76,6 +80,8 @@ namespace JameGam.UI {
 
       request.gameObject.SetActive(true);
       request.ShowPanel();
+
+      SfxAudioSource.PlayOneShot(AddRequestSfx);
 
       return request;
     }
