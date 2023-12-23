@@ -9,5 +9,14 @@ namespace JameGam {
 
     [field: SerializeField]
     public string InteractText { get; set; } = string.Empty;
+
+    [field: SerializeField]
+    public MeshRenderer HighlightRenderer { get; set; }
+
+    private void Awake() {
+      if (!HighlightRenderer) {
+        HighlightRenderer = GetComponentInChildren<MeshRenderer>();
+      }
+    }
   }
 }

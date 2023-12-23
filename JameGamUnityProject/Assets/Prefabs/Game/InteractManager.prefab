@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractAgent>k__BackingField: {fileID: 0}
-  <InteractRange>k__BackingField: 1.5
+  <InteractRange>k__BackingField: 2
   <CanInteract>k__BackingField: 1
   <ClosestInteractable>k__BackingField: {fileID: 0}
