@@ -77,7 +77,7 @@ namespace JameGam.UI {
           .Insert(0f, ScoreLabel.DOCounter(CurrentScore, targetScore, 1f))
           .Insert(0f, ScoreLabel.transform.DOPunchPosition(new(0f, 2.5f, 0f), 1.25f, 3, 1))
           .Insert(0f, ScoreIcon.transform.DOPunchScale(Vector3.one * 0.15f, 1.25f, 5, 0f))
-          .InsertCallback(0f, () => SfxAudioSource.PlayOneShot(ScoreIncreaseSfx));
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(ScoreIncreaseSfx));
 
       CurrentScore = targetScore;
     }

@@ -892,7 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Panel>k__BackingField: {fileID: 5842071760501291456}
   <PanelCanvasGroup>k__BackingField: {fileID: 3438071586138349423}
-  <SfxAudio>k__BackingField: {fileID: 1459818683959510889}
+  <SfxAudioSource>k__BackingField: {fileID: 1459818683959510889}
   <ShowPanelSfx>k__BackingField: {fileID: 8300000, guid: 5d86b8e3afd877343933a956b9c6f13c, type: 3}
   <HidePanelSfx>k__BackingField: {fileID: 8300000, guid: bb92d5699a89f9e42bfa7ed796d9b3b5, type: 3}
   <AudioVolumeSlider>k__BackingField: {fileID: 4653823294849589121}

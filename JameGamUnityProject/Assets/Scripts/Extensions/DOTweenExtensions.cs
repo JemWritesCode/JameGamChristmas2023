@@ -4,23 +4,27 @@ using DG.Tweening;
 
 using TMPro;
 
+using UnityEngine;
+
 namespace JameGam {
   public static class DOTweenExtensions {
-    public static TweenerCore<int, int, NoOptions> DOCounter(
-        this TMP_Text target, int fromValue, int toValue, float duration) {
-      int value = fromValue;
+    public static Tweener DOCounter(this TMP_Text target, int fromValue, int toValue, float duration) {
+      return DOVirtual
+          .Int(fromValue, toValue, duration, x => target.SetText(x.ToString()))
+          .SetTarget(target);
+    }
 
-      int GetValue() => value;
+    public static Tweener DOPlayOneShot(this AudioSource target, AudioClip audioClip) {
+      float duration = audioClip.length;
 
-      void SetValue(int x) {
-        value = x;
-        target.text = value.ToString();
-      };
+      return DOVirtual
+          .Float(0f, duration, duration, EmptyFloatCallback)
+          .OnStart(() => target.PlayOneShot(audioClip))
+          .SetTarget(target);
+    }
 
-      TweenerCore<int, int, NoOptions> tweener = DOTween.To(GetValue, SetValue, toValue, duration);
-      tweener.SetTarget(target);
-
-      return tweener;
+    static void EmptyFloatCallback(float x) {
+      // ...
     }
   }
 }
