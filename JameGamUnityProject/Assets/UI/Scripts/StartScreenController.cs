@@ -20,6 +20,9 @@ namespace JameGam.UI {
     [field: SerializeField, Header("StartGameButton")]
     public Image StartGameButton { get; private set; }
 
+    [field: SerializeField, Header("TitleText")]
+    public Image TitleText { get; private set; }
+
     [field: SerializeField, Header("SFX")]
     public AudioSource SfxAudioSource { get; private set; }
 
@@ -69,6 +72,7 @@ namespace JameGam.UI {
           .Insert(0f, CreateTranslateFade(Santa, 0.5f, new(-250f, 0f, 0f), 1.5f))
           .Insert(0.5f, SfxAudioSource.DOPlayOneShot(SantaIntroSfx))
           .Insert(0f, CreateTranslateFade(Anvil, 0.5f, new(0f, 250f, 0f), 1.5f))
+          .Insert(0f, CreateTranslateFade(TitleText, 0.5f, new(0f, -250f, 0f), 1.5f))
           .Insert(0.5f, SfxAudioSource.DOPlayOneShot(AnvilIntroSfx))
           .Insert(0f, CreateTranslateFade(StartGameButton, 0.5f, new(0f, 0f, 0f), 1.5f))
           .SetEase(Ease.InOutQuad);
