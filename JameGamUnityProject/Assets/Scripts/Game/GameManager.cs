@@ -1,3 +1,5 @@
+using JameGam.UI;
+
 using UnityEngine;
 
 namespace JameGam {
@@ -23,6 +25,44 @@ namespace JameGam {
       } else {
         _instance = this;
       }
+    }
+
+    [field: SerializeField, Header("NewGame")]
+    public float StartScore { get; private set; } = 0f;
+
+    [field: SerializeField]
+    public float StartTimer { get; private set; } = 300f;
+
+    [field: SerializeField]
+    public DialogNode StartDialogNode { get; private set; }
+
+    public GameSession CurrentGameSession { get; private set; }
+
+    public void StartNewGame() {
+      StartNewGame(
+          new() {
+            CurrentScore = StartScore,
+            CurrentTimer = StartTimer,
+          });
+    }
+
+    public void StartNewGame(GameSession gameSession) {
+      CurrentGameSession = gameSession;
+
+      StartDialogNode.OnNodeCompleteCallbacks.Enqueue(_ => {
+        UIManager.Instance.ScorePanel.SetCurrentScore(Mathf.RoundToInt(gameSession.CurrentScore));
+        UIManager.Instance.TimerPanel.StartTimer(gameSession.CurrentTimer);
+      });
+
+      UIManager.Instance.DialogPanel.ShowDialogNode(StartDialogNode);
+    }
+
+    public void PauseGame() {
+      UIManager.Instance.TimerPanel.PauseTimer();
+    }
+
+    public void ResumeGame() {
+      UIManager.Instance.TimerPanel.ResumeTimer();
     }
   }
 }

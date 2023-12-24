@@ -1,3 +1,7 @@
+using System;
+
+using Codice.Client.Common.TreeGrouper;
+
 using DG.Tweening;
 
 using TMPro;
@@ -65,8 +69,25 @@ namespace JameGam.UI {
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
     }
 
+    public DialogNode CurrentDialogNode { get; private set; }
+
+    public void ShowDialogNode(DialogNode dialogNode) {
+      CurrentDialogNode = dialogNode;
+      DialogText.text = CurrentDialogNode.GetNextConversationText();
+      ShowPanel();
+    }
+
     public void OnConfirmButtonClicked() {
-      HidePanel();
+      if (!CurrentDialogNode) {
+        HidePanel();
+      }
+
+      if (CurrentDialogNode.HasConversationText()) {
+        ShowDialogNode(CurrentDialogNode);
+      } else {
+        HidePanel();
+        CurrentDialogNode.OnNodeComplete();
+      }
     }
   }
 }

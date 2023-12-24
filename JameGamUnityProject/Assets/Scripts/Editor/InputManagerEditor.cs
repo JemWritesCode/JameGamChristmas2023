@@ -1,21 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEditor;
 
-namespace JameGam.Editor
-{
-    public class InputManagerEditor : MonoBehaviour
-    {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+namespace JameGam.Editor {
+  [CustomEditor(typeof(InputManager))]
+  public sealed class InputManagerEditor : UnityEditor.Editor {
+    InputManager _manager;
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+    private void OnEnable() {
+      _manager = (InputManager) target;
     }
+
+    public override void OnInspectorGUI() {
+      base.OnInspectorGUI();
+      EditorGUILayout.Separator();
+
+      EditorGUILayout.LabelField(nameof(InputManagerEditor), EditorStyles.boldLabel);
+      EditorGUILayout.Separator();
+
+      DrawManagerControls();
+    }
+
+    private void DrawManagerControls() {
+      // ...
+    }
+  }
 }
