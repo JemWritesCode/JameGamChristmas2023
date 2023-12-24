@@ -17,7 +17,7 @@ namespace JameGam {
 
       return DOVirtual
           .Float(0f, duration, duration, EmptyFloatCallback)
-          .OnStart(() => target.PlayOneShot(audioClip))
+          .OnPlay(() => target.PlayOneShot(audioClip))
           .SetTarget(target);
     }
 

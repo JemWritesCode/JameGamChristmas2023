@@ -1,14 +1,18 @@
 using DG.Tweening;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace JameGam.UI {
   public sealed class StartScreenController : MonoBehaviour {
+    [field: SerializeField, Header("SceneLoader")]
+    public string OnStartGameSceneName { get; private set; }
+
     [field: SerializeField, Header("Stars1")]
     public Image Stars1 { get; private set; }
 
-    [field: SerializeField]
+    [field: SerializeField, Header("Mountains")]
     public Image Mountains { get; private set; }
 
     [field: SerializeField, Header("Santa")]
@@ -35,15 +39,19 @@ namespace JameGam.UI {
     [field: SerializeField]
     public AudioClip AnvilIntroSfx { get; private set; }
 
+    [field: SerializeField]
+    public AudioClip StartGameSfx { get; private set; }
+
     private void Awake() {
       AnimateIntro();
     }
 
     private Sequence CreateTranslateFade(Image image, float position, Vector3 direction, float duration) {
       return DOTween.Sequence()
-                .Insert(position - duration / 2,
-                        image.transform.DOPunchPosition(Vector3.Scale(direction, new(-1f, -1f, -1f)), duration, 0, 0f))
-                .Insert(position, image.DOFade(1.0f, duration / 2).From(0f, true));
+          .Insert(
+              position - duration / 2,
+              image.transform.DOPunchPosition(Vector3.Scale(direction, new(-1f, -1f, -1f)), duration, 0, 0f))
+          .Insert(position, image.DOFade(1.0f, duration / 2).From(0f, true));
     }
 
     public void AnimateIntro() {
@@ -74,7 +82,7 @@ namespace JameGam.UI {
           .Insert(0f, CreateTranslateFade(Anvil, 0.5f, new(0f, 250f, 0f), 1.5f))
           .Insert(0f, CreateTranslateFade(TitleText, 0.5f, new(0f, -250f, 0f), 1.5f))
           .Insert(0.5f, SfxAudioSource.DOPlayOneShot(AnvilIntroSfx))
-          .Insert(0f, CreateTranslateFade(StartGameButton, 0.5f, new(0f, 0f, 0f), 1.5f))
+          .Insert(1f, CreateTranslateFade(StartGameButton, 0.5f, new(0f, 0f, 0f), 1.5f))
           .SetEase(Ease.InOutQuad);
     }
 
@@ -88,7 +96,9 @@ namespace JameGam.UI {
     }
 
     public void OnStartGameButtonClicked() {
-
+      DOTween.Sequence()
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(StartGameSfx))
+          .OnComplete(() => SceneManager.LoadScene(OnStartGameSceneName));
     }
   }
 }

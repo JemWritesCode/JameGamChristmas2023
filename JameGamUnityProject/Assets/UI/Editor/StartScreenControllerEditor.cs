@@ -18,8 +18,10 @@ namespace JameGam.UI.Editor {
       EditorGUILayout.LabelField(nameof(StartScreenController), EditorStyles.boldLabel);
       EditorGUILayout.Separator();
 
-      if (GUILayout.Button("AnimateIntro")) {
-        _controller.AnimateIntro();
+      using (new EditorGUI.DisabledScope(!Application.isPlaying)) {
+        if (GUILayout.Button("AnimateIntro")) {
+          _controller.AnimateIntro();
+        }
       }
     }
   }

@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d837aca3d20a4794d97c58efc6c972a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OnStartGameSceneName>k__BackingField: 2MainLevel
   <Stars1>k__BackingField: {fileID: 156424892494900856}
   <Mountains>k__BackingField: {fileID: 1084031312500739890}
   <Santa>k__BackingField: {fileID: 7190394142618295872}
@@ -582,6 +583,7 @@ MonoBehaviour:
   <SantaIntroSfx>k__BackingField: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   <SantaClickedSfx>k__BackingField: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
   <AnvilIntroSfx>k__BackingField: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
+  <StartGameSfx>k__BackingField: {fileID: 8300000, guid: c652ca09781ad1343b3f03891f6a21f3, type: 3}
 --- !u!1 &4894449530464525713
 GameObject:
   m_ObjectHideFlags: 0

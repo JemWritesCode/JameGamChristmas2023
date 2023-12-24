@@ -1,3 +1,5 @@
+using DG.Tweening;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,8 +11,16 @@ namespace JameGam.UI {
     [field: SerializeField]
     public AudioClip OnHoverSfx { get; private set; }
 
+    Tweener _onHoverSfxTweener;
+
+    private void Awake() {
+      _onHoverSfxTweener = SfxAudioSource.DOPlayOneShot(OnHoverSfx).Pause().SetAutoKill(false);
+    }
+
     public void OnPointerEnter(PointerEventData eventData) {
-      SfxAudioSource.PlayOneShot(OnHoverSfx);
+      if (!_onHoverSfxTweener.IsPlaying()) {
+        _onHoverSfxTweener.Restart();
+      }
     }
   }
 }
