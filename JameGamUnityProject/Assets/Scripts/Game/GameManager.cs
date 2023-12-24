@@ -1,3 +1,5 @@
+using System.Linq;
+
 using JameGam.UI;
 
 using UnityEngine;
@@ -24,6 +26,12 @@ namespace JameGam {
         Destroy(this);
       } else {
         _instance = this;
+      }
+    }
+
+    private void Start() {
+      if (!CurrentPlayer) {
+        CurrentPlayer = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault();
       }
     }
 

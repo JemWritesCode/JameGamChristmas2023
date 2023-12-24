@@ -11,5 +11,8 @@ namespace JameGam {
 
     [field: SerializeField]
     public Sprite ItemIcon { get; private set; }
+
+    [field: SerializeField]
+    public GameObject ItemPrefab { get; private set; }
   }
 }
