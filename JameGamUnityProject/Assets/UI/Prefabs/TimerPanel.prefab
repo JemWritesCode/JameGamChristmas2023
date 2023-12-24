@@ -317,6 +317,8 @@ MonoBehaviour:
   <TimerIcon>k__BackingField: {fileID: 3706226749739380869}
   <SfxAudioSource>k__BackingField: {fileID: 2108076408685892567}
   <StartTimerSfx>k__BackingField: {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
+  <PauseTimerSfx>k__BackingField: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+  <ResumeTimerSfx>k__BackingField: {fileID: 8300000, guid: 657578e4be6b64dbf9b09deada272e55, type: 3}
   <TimerIconClickedSfx>k__BackingField: {fileID: 8300000, guid: 59073a6d1eb1b9e4783cbca9415173c6, type: 3}
 --- !u!1 &5948575182104262798
 GameObject:

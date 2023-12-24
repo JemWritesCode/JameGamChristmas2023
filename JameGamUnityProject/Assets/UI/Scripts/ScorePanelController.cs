@@ -50,26 +50,24 @@ namespace JameGam.UI {
 
     public void ShowPanel() {
       Panel.DOComplete(withCallbacks: true);
+
       IsPanelVisible = true;
+      PanelCanvasGroup.blocksRaycasts = true;
 
       DOTween.Sequence()
           .SetTarget(Panel)
-          .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
-          .OnComplete(() => {
-            PanelCanvasGroup.blocksRaycasts = true;
-          });
+          .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f));
     }
 
     public void HidePanel() {
       Panel.DOComplete(withCallbacks: true);
+
       IsPanelVisible = false;
+      PanelCanvasGroup.blocksRaycasts = false;
 
       DOTween.Sequence()
           .SetTarget(Panel)
-          .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f))
-          .OnComplete(() => {
-            PanelCanvasGroup.blocksRaycasts = false;
-          });
+          .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
     }
 
     public void SetCurrentScore(int targetScore) {

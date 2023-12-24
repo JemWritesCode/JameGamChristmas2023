@@ -26,6 +26,12 @@ namespace JameGam.UI {
     public AudioClip StartTimerSfx { get; private set; }
 
     [field: SerializeField]
+    public AudioClip PauseTimerSfx { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip ResumeTimerSfx { get; private set; }
+
+    [field: SerializeField]
     public AudioClip TimerIconClickedSfx { get; private set; }
 
     public float CurrentTimer { get; private set; }
@@ -70,15 +76,35 @@ namespace JameGam.UI {
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
     }
 
-    public void StartTimer(float timeInSeconds) {
-      TimerLabel.DOComplete(withCallbacks: true);
+    Tweener _timerTweener;
 
-      DOVirtual
-          .Float(timeInSeconds, 0f, timeInSeconds, SetCurrentTimer)
-          .SetTarget(TimerLabel)
-          .SetEase(Ease.Linear);
+    public void StartTimer(float timeInSeconds) {
+      _timerTweener?.Complete(withCallbacks: true);
+
+      _timerTweener =
+          DOVirtual
+              .Float(timeInSeconds, 0f, timeInSeconds, SetCurrentTimer)
+              .SetEase(Ease.Linear);
 
       SfxAudioSource.PlayOneShot(StartTimerSfx);
+    }
+
+    public void PauseTimer() {
+      _timerTweener?.Pause();
+
+      TimerLabel.DOComplete(withCallbacks: true);
+      TimerLabel.transform.DOPunchPosition(new(0f, 2.5f, 0f), 1f, 3, 1f);
+
+      SfxAudioSource.PlayOneShot(PauseTimerSfx);
+    }
+
+    public void ResumeTimer() {
+      _timerTweener?.Play();
+
+      TimerLabel.DOComplete(withCallbacks: true);
+      TimerLabel.transform.DOPunchPosition(new(0f, -2.5f, 0f), 1f, 3, 1f);
+
+      SfxAudioSource.PlayOneShot(ResumeTimerSfx);
     }
 
     private readonly char[] _timerLabelChars = new char[5];

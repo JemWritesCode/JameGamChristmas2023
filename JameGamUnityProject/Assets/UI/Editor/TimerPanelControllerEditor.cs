@@ -40,17 +40,26 @@ namespace JameGam.UI.Editor {
       GUILayout.EndHorizontal();
     }
 
-    float _timeInSeconds = 0f;
+    float _timeInSeconds = 300f;
 
     private void DrawTimerControls() {
       GUILayout.BeginVertical("Timer Controls", GUI.skin.window);
-      GUILayout.BeginHorizontal();
 
       _timeInSeconds = EditorGUILayout.FloatField("timeInSeconds", _timeInSeconds);
+
+      GUILayout.BeginHorizontal();
 
       using (new EditorGUI.DisabledScope(!Application.isPlaying)) {
         if (GUILayout.Button("StartTimer")) {
           _controller.StartTimer(_timeInSeconds);
+        }
+
+        if (GUILayout.Button("PauseTimer")) {
+          _controller.PauseTimer();
+        }
+
+        if (GUILayout.Button("ResumeTimer")) {
+          _controller.ResumeTimer();
         }
       }
 
