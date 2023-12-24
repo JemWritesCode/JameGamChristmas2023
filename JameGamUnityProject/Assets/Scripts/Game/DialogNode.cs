@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace JameGam {
-  [CreateAssetMenu(menuName = "JameGam/DialogNode")]
+  [CreateAssetMenu(menuName = "JameGam/DialogNode", fileName = "DialogNode")]
   public class DialogNode : ScriptableObject {
     public enum DialogNodeType {
       Conversation

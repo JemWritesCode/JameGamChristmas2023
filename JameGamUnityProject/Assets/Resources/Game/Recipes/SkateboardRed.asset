@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510a4d7707066b14583f497d0d797f57, type: 3}
+  m_Name: SkateboardRed
+  m_EditorClassIdentifier: 
+  <RecipeName>k__BackingField: Skateboard
+  <RecipeIcon>k__BackingField: {fileID: 21300000, guid: 92212c3c346f2e141872b4dcde6ad043, type: 3}
+  <RecipeDescription>k__BackingField: A simple red skateboard.
+  <ItemsNeeded>k__BackingField:
+  - {fileID: 11400000, guid: 53242ec93dc9a93498712b5eec22f515, type: 2}
+  - {fileID: 11400000, guid: 2fd063a80b694334e9a826429a46c9c5, type: 2}
+  - {fileID: 11400000, guid: 2fd063a80b694334e9a826429a46c9c5, type: 2}
+  <ItemsProduced>k__BackingField:
+  - {fileID: 11400000, guid: 090516a53f7b32142a66aff8d64595fe, type: 2}

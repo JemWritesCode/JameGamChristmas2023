@@ -42,23 +42,17 @@ namespace JameGam.UI.Editor {
       GUILayout.EndHorizontal();
     }
 
-    string _productTitle = string.Empty;
-    Sprite _productIcon;
-    readonly Sprite[] _requestPartIcons = new Sprite[4];
+    Recipe _recipe;
 
     private void DrawProductRequestControls() {
       GUILayout.BeginVertical("Product Request Controls", GUI.skin.window);
 
-      _productTitle = EditorGUILayout.TextField("ProductTitle", _productTitle);
-      _productIcon = SingleLineObjectField("ProductIcon", _productIcon);
-
-      for (int i = 0; i < _requestPartIcons.Length; i++) {
-        _requestPartIcons[i] = SingleLineObjectField($"PartIcon{i + 1}", _requestPartIcons[i]);
-      }
+      _recipe = SingleLineObjectField("Recipe", _recipe);
 
       using (new EditorGUI.DisabledScope(!Application.isPlaying)) {
         if (GUILayout.Button("Add Request")) {
-          _controller.AddProductRequest(_productTitle, _productIcon, _requestPartIcons.Where(icon => icon).ToArray());
+          _controller.AddProductRequest(
+              _recipe.RecipeName, _recipe.RecipeIcon, _recipe.ItemsNeeded.Select(item => item.ItemIcon).ToArray());
         }
       }
 
