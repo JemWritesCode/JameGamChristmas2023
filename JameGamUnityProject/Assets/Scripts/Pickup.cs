@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace JameGam
@@ -14,6 +12,9 @@ namespace JameGam
         [SerializeField] bool canpickup = false; 
         [SerializeField] bool isCrate = false;
         [SerializeField] bool isNextToCounter = false;
+
+        [field: SerializeField]
+        public Transform HeldItemAttachPoint { get; private set; }
 
         void Update()
         {
@@ -46,6 +47,15 @@ namespace JameGam
                 ObjectIwantToPickUp.transform.position = myHands.transform.position;
                 ObjectIwantToPickUp.transform.parent = myHands.transform;
             }
+        }
+     
+        public void PickupItemFromSpawner(GameObject itemToSpawn) {
+          if (IsHoldingItem()) {
+
+          } else {
+            Instantiate(itemToSpawn, HeldItemAttachPoint, false);
+            Debug.Log($"Spawned item: {itemToSpawn.name}");
+          }
         }
 
         private void PutdownItem()
@@ -87,6 +97,14 @@ namespace JameGam
             canpickup = false;
             isNextToCounter = false;
             isCrate = false;
+        }
+
+        public bool IsHoldingItem() {
+          return HeldItemAttachPoint.childCount > 0;
+        }
+
+        public GameObject GetHeldItem() {
+          return HeldItemAttachPoint.childCount > 0 ? HeldItemAttachPoint.GetChild(0).gameObject : default;
         }
 
         private bool checkIfHoldingItem()
