@@ -1,7 +1,5 @@
 using System;
 
-using Facepunch;
-
 using UnityEngine;
 
 namespace JameGam {
@@ -43,15 +41,8 @@ namespace JameGam {
           CanInteract && InteractAgent ? GetClosestInteractable(InteractAgent.transform, InteractRange) : default;
 
       if (interactable != ClosestInteractable) {
-        if (ClosestInteractable && ClosestInteractable.HighlightRenderer) {
-          Highlight.RemoveRenderer(ClosestInteractable.HighlightRenderer);
-        }
-        
-        if (interactable && interactable.HighlightRenderer) {
-          Highlight.AddRenderer(interactable.HighlightRenderer);
-        }
-
-        Highlight.Rebuild();
+        HighlightManager.Instance.RemoveInteractable(ClosestInteractable);
+        HighlightManager.Instance.AddInteractable(interactable);
 
         ClosestInteractable = interactable;
       }
