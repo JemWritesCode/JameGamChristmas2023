@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d82bdd5cd26a4da8a3280690c458e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SettingsPanel>k__BackingField: {fileID: 0}
   <ToggleMenuKey>k__BackingField: 112
+  <InteractKey>k__BackingField: 101

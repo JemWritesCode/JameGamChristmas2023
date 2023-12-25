@@ -6,7 +6,7 @@ namespace JameGam{
     public KeyCode ToggleMenuKey { get; private set; } = KeyCode.P;
 
     [field: SerializeField]
-    public KeyCode InteractKey { get; private set; } = KeyCode.Space;
+    public KeyCode InteractKey { get; private set; } = KeyCode.E;
 
     static InputManager _instance;
 

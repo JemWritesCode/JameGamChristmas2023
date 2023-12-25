@@ -17,8 +17,10 @@ namespace JameGam {
 
       transform.DOPunchRotation(rotation, Random.Range(1f, 2f), Random.Range(6, 10), 1f);
 
-      Debug.Log($"Giving item to player: {ItemToSpawn.name}");
-      GameManager.Instance.CurrentPlayer.GetComponent<Pickup>().PickupItemFromSpawner(ItemToSpawn);
+      if (GameManager.Instance.CurrentPlayer.TryGetComponent(out Pickup pickup)) {
+        Debug.Log($"Giving item to player: {ItemToSpawn.name}");
+        pickup.PickupItemFromSpawner(ItemToSpawn);
+      }
     }
   }
 }

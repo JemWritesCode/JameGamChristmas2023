@@ -1723,6 +1723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4768212490427958792, guid: b8df1d4e62d049e4d80d3c6fe3354b05, type: 3}
+      propertyPath: <InteractKey>k__BackingField
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 8318806663074609037, guid: b8df1d4e62d049e4d80d3c6fe3354b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
