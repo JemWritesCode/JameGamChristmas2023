@@ -12673,6 +12673,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6292929056497361721, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
+      propertyPath: m_text
+      value: Space
+      objectReference: {fileID: 0}
     - target: {fileID: 7609673915814802246, guid: 7e1d45b1ea6782645ba3853d1ba035ab, type: 3}
       propertyPath: m_Name
       value: GameUI
