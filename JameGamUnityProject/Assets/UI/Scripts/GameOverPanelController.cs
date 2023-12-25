@@ -34,10 +34,22 @@ namespace JameGam.UI {
     public Image StarsBackground { get; private set; }
 
     [field: SerializeField]
-    public Image StarsIcon { get; private set; }
+    public UIEffect StarIconLeftEffect { get; private set; }
 
     [field: SerializeField]
-    public UIEffect StarsIconEffect { get; private set; }
+    public UIEffect StarIconCenterEffect { get; private set; }
+
+    [field: SerializeField]
+    public UIEffect StarIconRightEffect { get; private set; }
+
+    [field: SerializeField, Header("SFX")]
+    public AudioSource SfxAudioSource { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip ShowPanelSfx { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip AnimateStarSfx { get; private set; }
 
     public bool IsPanelVisible { get; private set; }
 
@@ -59,6 +71,7 @@ namespace JameGam.UI {
 
       DOTween.Sequence()
           .SetTarget(Panel)
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(ShowPanelSfx))
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
           .Insert(0.15f, QuoteBackground.DOFade(1f, 1f).From(0f, true))
           .Insert(0.15f, QuoteBackground.transform.DOMoveY(10f, 1f).From(isRelative: true))
@@ -68,7 +81,17 @@ namespace JameGam.UI {
           .Insert(0.55f, QuoteText.transform.DOMoveY(5f, 1f).From(isRelative: true))
           .Insert(1.00f, StarsBackground.DOFade(1f, 0.5f).From(0f, true))
           .Insert(1.00f, StarsBackground.transform.DOMoveY(5f, 0.5f).From(isRelative: true))
-          .Insert(1.15f, StarsIcon.DOFade(1f, 0.5f).From(0f, true));
+          .Insert(2f, FadeStarIn(StarIconLeftEffect))
+          .Insert(2.75f, FadeStarIn(StarIconCenterEffect))
+          .Insert(3.50f, FadeStarIn(StarIconRightEffect));
+
+      Tween FadeStarIn(UIEffect effect) {
+        return DOTween.Sequence()
+            .Insert(0f, effect.GetComponent<Image>().DOFade(1f, 1f).From(0f, true))
+            .Insert(0f, DOTween.To(() => effect.effectFactor, x => effect.effectFactor = x, 0f, 2f).From(1f, true))
+            .Insert(0f, SfxAudioSource.DOPlayOneShot(AnimateStarSfx))
+            .Insert(0f, effect.transform.DOPunchScale(Vector3.one * 1.05f, 1.5f, 5, 0f));
+      }
     }
 
     public void HidePanel() {
