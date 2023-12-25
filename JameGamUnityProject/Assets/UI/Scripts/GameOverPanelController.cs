@@ -88,7 +88,7 @@ namespace JameGam.UI {
       Tween FadeStarIn(UIEffect effect) {
         return DOTween.Sequence()
             .Insert(0f, effect.GetComponent<Image>().DOFade(1f, 1f).From(0f, true))
-            .Insert(0f, DOTween.To(() => effect.effectFactor, x => effect.effectFactor = x, 0f, 2f).From(1f, true))
+            .Insert(0f, DOTween.To(() => effect.effectFactor, x => effect.effectFactor = x, 0f, 0.75f).From(1f, true))
             .Insert(0f, SfxAudioSource.DOPlayOneShot(AnimateStarSfx))
             .Insert(0f, effect.transform.DOPunchScale(Vector3.one * 1.05f, 1.5f, 5, 0f));
       }
