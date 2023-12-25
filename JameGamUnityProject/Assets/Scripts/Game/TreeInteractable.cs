@@ -4,15 +4,28 @@ using UnityEngine;
 
 namespace JameGam {
   public sealed class TreeInteractable : Interactable {
+    [field: SerializeField, Header("SFX")]
+    public AudioSource SfxAudioSource { get; private set; }
+
+    [field: SerializeField]
+    public AudioClip ShakeTreeSfx { get; private set; }
+
     public void ShakeTree() {
       transform.DOComplete(withCallbacks: true);
 
-      Vector3 rotation = new(
-          Random.Range(8f, 16f) * (Random.value > 0.5 ? 1f : -1f),
-          0f,
-          Random.Range(8f, 16f) * (Random.value > 0.5 ? 1f : -1f));
+      DOTween.Sequence()
+          .Insert(0f, SfxAudioSource.DOPitch(1f, 1f).From(Random.Range(0.85f, 1.15f), true))
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(ShakeTreeSfx))
+          .Insert(0f, transform.DOBlendablePunchRotation(RandomShakeTreeRotation(), Random.Range(1f, 1.5f), 6, 1f))
+          .Insert(0f, transform.DOBlendableRotateBy(new(0f, Random.Range(-35f, 35f), 0f), 1f, RotateMode.Fast))
+          .SetTarget(transform);
+    }
 
-      transform.DOPunchRotation(rotation, Random.Range(1f, 2f), Random.Range(6, 10), 1f);
+    Vector3 RandomShakeTreeRotation() {
+      return new Vector3(
+          Random.Range(4f, 9f) * (Random.value > 0.5 ? 1f : -1f),
+          0f,
+          Random.Range(4f, 9f) * (Random.value > 0.5 ? 1f : -1f));
     }
   }
 }
