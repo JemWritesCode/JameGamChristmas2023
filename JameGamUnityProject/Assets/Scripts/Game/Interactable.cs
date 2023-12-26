@@ -13,10 +13,14 @@ namespace JameGam {
     public MeshRenderer HighlightRenderer { get; set; }
 
     [Header("Events"), Space(10)]
-    public UnityEvent OnInteract;
+    public UnityEvent<GameObject> OnInteract;
 
     public void Interact() {
-      OnInteract?.Invoke();
+      OnInteract?.Invoke(default);
+    }
+
+    public void Interact(GameObject interactAgent) {
+      OnInteract?.Invoke(interactAgent);
     }
   }
 }

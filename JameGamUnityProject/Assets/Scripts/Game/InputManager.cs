@@ -46,7 +46,7 @@ namespace JameGam{
       Interactable interactable = InteractManager.Instance.ClosestInteractable;
 
       if (interactable) {
-        interactable.Interact();
+        interactable.Interact(InteractManager.Instance.InteractAgent);
       }
     }
   }
