@@ -225,6 +225,8 @@ GameObject:
   - component: {fileID: 1862448932882277275}
   - component: {fileID: 3034632508965609366}
   - component: {fileID: 918929117322893073}
+  - component: {fileID: 5577774298650170562}
+  - component: {fileID: 6578738555771354064}
   m_Layer: 5
   m_Name: StarIconLeft
   m_TagString: Untagged
@@ -325,6 +327,76 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3019608, g: 0.24705882, b: 0.2, a: 0.6}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &5577774298650170562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292609048543578455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5551c435c5c76844eabd668c9f504e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DoScaleEndValue>k__BackingField: {x: 1.1, y: 1.1, z: 1.1}
+  <DoScaleDuration>k__BackingField: 0.25
+--- !u!114 &6578738555771354064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292609048543578455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1862448932882277275}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7483344560786666081}
+        m_TargetAssemblyTypeName: JameGam.UI.GameOverPanelController, JameGam
+        m_MethodName: OnStarIconClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3034632508965609366}
+          m_ObjectArgumentAssemblyTypeName: Coffee.UIEffects.UIEffect, UIEffect
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3407901795675607691
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +837,8 @@ GameObject:
   - component: {fileID: 1365514173467040887}
   - component: {fileID: 7451720403304641655}
   - component: {fileID: 6648541750704325284}
+  - component: {fileID: 2502181855769704851}
+  - component: {fileID: 781345925144559956}
   m_Layer: 5
   m_Name: StarIconRight
   m_TagString: Untagged
@@ -865,6 +939,76 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3019608, g: 0.24705882, b: 0.2, a: 0.6}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &2502181855769704851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317949512810871469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5551c435c5c76844eabd668c9f504e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DoScaleEndValue>k__BackingField: {x: 1.1, y: 1.1, z: 1.1}
+  <DoScaleDuration>k__BackingField: 0.25
+--- !u!114 &781345925144559956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317949512810871469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1365514173467040887}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7483344560786666081}
+        m_TargetAssemblyTypeName: JameGam.UI.GameOverPanelController, JameGam
+        m_MethodName: OnStarIconClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7451720403304641655}
+          m_ObjectArgumentAssemblyTypeName: Coffee.UIEffects.UIEffect, UIEffect
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6132326886444888795
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1135,8 @@ GameObject:
   - component: {fileID: 3470621190329693636}
   - component: {fileID: 5666324487605998365}
   - component: {fileID: 7849922775390255698}
+  - component: {fileID: 6918843082263333719}
+  - component: {fileID: 28701798394751257}
   m_Layer: 5
   m_Name: StarIconCenter
   m_TagString: Untagged
@@ -1091,3 +1237,73 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3019608, g: 0.24705882, b: 0.2, a: 0.6}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &6918843082263333719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167703356521247802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5551c435c5c76844eabd668c9f504e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DoScaleEndValue>k__BackingField: {x: 1.1, y: 1.1, z: 1.1}
+  <DoScaleDuration>k__BackingField: 0.25
+--- !u!114 &28701798394751257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167703356521247802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 3470621190329693636}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7483344560786666081}
+        m_TargetAssemblyTypeName: JameGam.UI.GameOverPanelController, JameGam
+        m_MethodName: OnStarIconClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5666324487605998365}
+          m_ObjectArgumentAssemblyTypeName: Coffee.UIEffects.UIEffect, UIEffect
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

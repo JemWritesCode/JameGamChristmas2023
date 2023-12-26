@@ -73,23 +73,25 @@ namespace JameGam.UI {
           .SetTarget(Panel)
           .Insert(0f, SfxAudioSource.DOPlayOneShot(ShowPanelSfx))
           .Insert(0f, PanelCanvasGroup.DOFade(1f, 0.25f))
-          .Insert(0.15f, QuoteBackground.DOFade(1f, 1f).From(0f, true))
-          .Insert(0.15f, QuoteBackground.transform.DOMoveY(10f, 1f).From(isRelative: true))
-          .Insert(0.35f, QuoteIcon.DOFade(1f, 1f).From(0f, true))
-          .Insert(0.35f, QuoteIcon.transform.DOMoveX(-10f, 1f).From(isRelative: true))
-          .Insert(0.55f, QuoteText.DOFade(1f, 1f).From(0f, true))
-          .Insert(0.55f, QuoteText.transform.DOMoveY(5f, 1f).From(isRelative: true))
-          .Insert(1.00f, StarsBackground.DOFade(1f, 0.5f).From(0f, true))
-          .Insert(1.00f, StarsBackground.transform.DOMoveY(5f, 0.5f).From(isRelative: true))
-          .Insert(2f, FadeStarIn(StarIconLeftEffect))
-          .Insert(2.75f, FadeStarIn(StarIconCenterEffect))
-          .Insert(3.50f, FadeStarIn(StarIconRightEffect));
+          .Insert(0.15f, FadeMoveImage(QuoteBackground, new(0f, 10f, 0f), 1f))
+          .Insert(0.35f, FadeMoveImage(QuoteIcon, new(-10f, 0f, 0f), 1f))
+          .Insert(0.55f, FadeMoveImage(QuoteText, new(0f, 5f, 0f), 1f))
+          .Insert(1.00f, FadeMoveImage(StarsBackground, new(0f, 5f, 0f), 0.5f))
+          .Insert(1.50f, FadeStarIn(StarIconLeftEffect, SfxAudioSource, AnimateStarSfx))
+          .Insert(2.25f, FadeStarIn(StarIconCenterEffect, SfxAudioSource, AnimateStarSfx))
+          .Insert(3.00f, FadeStarIn(StarIconRightEffect, SfxAudioSource, AnimateStarSfx));
 
-      Tween FadeStarIn(UIEffect effect) {
+      static Tween FadeMoveImage(Graphic image, Vector3 offset, float duration) {
+        return DOTween.Sequence()
+            .Insert(0f, image.DOFade(1f, duration).From(0f, true))
+            .Insert(0f, image.transform.DOMove(offset, duration).From(isRelative: true));
+      }
+
+      static Tween FadeStarIn(UIEffect effect, AudioSource audioSource, AudioClip sfxAudioClip) {
         return DOTween.Sequence()
             .Insert(0f, effect.GetComponent<Image>().DOFade(1f, 1f).From(0f, true))
             .Insert(0f, DOTween.To(() => effect.effectFactor, x => effect.effectFactor = x, 0f, 0.75f).From(1f, true))
-            .Insert(0f, SfxAudioSource.DOPlayOneShot(AnimateStarSfx))
+            .Insert(0f, audioSource.DOPlayOneShot(sfxAudioClip))
             .Insert(0f, effect.transform.DOPunchScale(Vector3.one * 1.05f, 1.5f, 5, 0f));
       }
     }
@@ -103,6 +105,15 @@ namespace JameGam.UI {
       DOTween.Sequence()
           .SetTarget(Panel)
           .Insert(0f, PanelCanvasGroup.DOFade(0f, 0.25f));
+    }
+
+    public void OnStarIconClicked(UIEffect effect) {
+      effect.DOComplete(withCallbacks: true);
+
+      DOTween.Sequence()
+          .SetTarget(effect)
+          .Insert(0f, SfxAudioSource.DOPlayOneShot(AnimateStarSfx))
+          .Insert(0f, effect.transform.DOPunchScale(Vector3.one * 0.15f, 0.5f, 10, 1f));
     }
   }
 }
