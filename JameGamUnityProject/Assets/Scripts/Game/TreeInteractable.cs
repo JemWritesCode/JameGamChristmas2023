@@ -34,9 +34,19 @@ namespace JameGam {
           Random.Range(4f, 9f) * (Random.value > 0.5 ? 1f : -1f));
     }
 
+    static readonly int _colorId = Shader.PropertyToID("_Color");
+    MaterialPropertyBlock _propertyBlock;
+
     public void SpawnItem() {
       GameObject item = Instantiate(ItemToSpawn, transform.position + SpawnOffset, Quaternion.identity);
       item.transform.localScale *= Random.Range(0.9f, 1.1f);
+
+      _propertyBlock ??= new();
+      _propertyBlock.SetColor(_colorId, new(Random.value, Random.value, Random.value));
+
+      foreach (MeshRenderer renderer in item.GetComponentsInChildren<MeshRenderer>()) {
+        renderer.SetPropertyBlock(_propertyBlock);
+      }
 
       Rigidbody rigidbody = item.GetComponent<Rigidbody>();
 
