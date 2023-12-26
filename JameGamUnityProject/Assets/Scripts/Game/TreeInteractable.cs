@@ -41,9 +41,9 @@ namespace JameGam {
       Rigidbody rigidbody = item.GetComponent<Rigidbody>();
 
       Vector3 force = new(
-          Random.Range(5f, 8.5f) * (Random.Range(0, 2) * 2 - 1),
-          Random.Range(5f, 8.5f),
-          Random.Range(5f, 8.5f) * (Random.Range(0, 2) * 2 - 1));
+          Random.Range(2f, 4.5f) * (Random.Range(0, 2) * 2 - 1),
+          Random.Range(2f, 4.5f),
+          Random.Range(2f, 4.5f) * (Random.Range(0, 2) * 2 - 1));
 
       Debug.Log($"Adding force: {force}!");
       rigidbody.AddForce(force, ForceMode.VelocityChange);
