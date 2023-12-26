@@ -34,28 +34,39 @@ namespace JameGam {
           Random.Range(4f, 9f) * (Random.value > 0.5 ? 1f : -1f));
     }
 
+    public void SpawnItem() {
+      GameObject item = Instantiate(ItemToSpawn, transform.position + SpawnOffset, Quaternion.identity);
+
+      RandomizeItemScale(item);
+      RandomizeItemColor(item);
+
+      if (item.TryGetComponent(out Rigidbody rigidbody)) {
+        AddRandomForce(rigidbody);
+      }
+    }
+
+    void RandomizeItemScale(GameObject item) {
+      item.transform.localScale *= Random.Range(0.85f, 1.15f);
+    }
+
     static readonly int _colorId = Shader.PropertyToID("_Color");
     MaterialPropertyBlock _propertyBlock;
 
-    public void SpawnItem() {
-      GameObject item = Instantiate(ItemToSpawn, transform.position + SpawnOffset, Quaternion.identity);
-      item.transform.localScale *= Random.Range(0.9f, 1.1f);
-
+    void RandomizeItemColor(GameObject item) {
       _propertyBlock ??= new();
       _propertyBlock.SetColor(_colorId, new(Random.value, Random.value, Random.value));
 
       foreach (MeshRenderer renderer in item.GetComponentsInChildren<MeshRenderer>()) {
         renderer.SetPropertyBlock(_propertyBlock);
       }
+    }
 
-      Rigidbody rigidbody = item.GetComponent<Rigidbody>();
-
+    void AddRandomForce(Rigidbody rigidbody) {
       Vector3 force = new(
           Random.Range(2f, 4.5f) * (Random.Range(0, 2) * 2 - 1),
           Random.Range(2f, 4.5f),
           Random.Range(2f, 4.5f) * (Random.Range(0, 2) * 2 - 1));
 
-      Debug.Log($"Adding force: {force}!");
       rigidbody.AddForce(force, ForceMode.VelocityChange);
     }
   }
