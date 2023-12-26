@@ -76,7 +76,10 @@ namespace JameGam {
         RaycastHit raycastHit = _raycastHits[i];
         Interactable interactable = raycastHit.collider.GetComponentInParent<Interactable>();
 
-        if (interactable && interactable.enabled && raycastHit.distance <= interactable.InteractRange) {
+        if (interactable
+            && interactable.enabled
+            && interactable.CanInteract
+            && raycastHit.distance <= interactable.InteractRange) {
           return interactable;
         }
       }

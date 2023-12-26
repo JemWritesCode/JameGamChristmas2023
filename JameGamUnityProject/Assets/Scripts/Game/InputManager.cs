@@ -43,6 +43,11 @@ namespace JameGam{
     }
 
     public void OnInteractKey() {
+      if (InteractManager.Instance.InteractAgent.TryGetComponent(out PickupController pickupController)
+          && pickupController.PutDownHeldItem()) {
+        return;
+      }
+
       Interactable interactable = InteractManager.Instance.ClosestInteractable;
 
       if (interactable) {

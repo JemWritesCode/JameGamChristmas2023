@@ -7,6 +7,9 @@ namespace JameGam {
     public float InteractRange { get; set; } = 2f;
 
     [field: SerializeField]
+    public bool CanInteract { get; set; } = true;
+
+    [field: SerializeField]
     public string InteractText { get; set; } = string.Empty;
 
     [field: SerializeField, Header("Highlight")]
