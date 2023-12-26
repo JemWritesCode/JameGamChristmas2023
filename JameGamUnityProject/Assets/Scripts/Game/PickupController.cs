@@ -25,7 +25,7 @@ namespace JameGam {
 
       interactable.CanInteract = false;
 
-      if (interactable.TryGetComponent(out Collider collider)) {
+      foreach (Collider collider in interactable.GetComponentsInChildren<Collider>()) {
         collider.enabled = false;
       }
 
@@ -52,7 +52,7 @@ namespace JameGam {
 
       interactable.CanInteract = true;
 
-      if (interactable.TryGetComponent(out Collider collider)) {
+      foreach (Collider collider in interactable.GetComponentsInChildren<Collider>()) {
         collider.enabled = true;
       }
 
