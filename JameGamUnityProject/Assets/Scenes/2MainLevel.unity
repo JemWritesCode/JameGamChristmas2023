@@ -4867,6 +4867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractRange>k__BackingField: 1.5
+  <CanInteract>k__BackingField: 1
   <InteractText>k__BackingField: Anvil
   <HighlightRenderer>k__BackingField: {fileID: 709574938}
   OnInteract:
@@ -7993,6 +7994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractRange>k__BackingField: 1.5
+  <CanInteract>k__BackingField: 1
   <InteractText>k__BackingField: Anvil
   <HighlightRenderer>k__BackingField: {fileID: 1218086343}
   OnInteract:
@@ -9392,6 +9394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractRange>k__BackingField: 4
+  <CanInteract>k__BackingField: 1
   <InteractText>k__BackingField: 
   <HighlightRenderer>k__BackingField: {fileID: 1465278333}
   OnInteract:
@@ -9662,6 +9665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractRange>k__BackingField: 1.5
+  <CanInteract>k__BackingField: 1
   <InteractText>k__BackingField: Spray Red
   <HighlightRenderer>k__BackingField: {fileID: 10659793}
   OnInteract:
@@ -11348,6 +11352,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54084939265967506, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_Drag
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 54084939265967506, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 54084939265967506, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54084939265967506, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 95665039525092722, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3233478580848223545, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.001
@@ -11391,6 +11415,14 @@ PrefabInstance:
     - target: {fileID: 8307136973966511105, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748688856612009363, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_moveSpeed
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748688856612009363, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_turnSpeed
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8999742470523826177, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
       propertyPath: m_Enabled
@@ -13983,6 +14015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractRange>k__BackingField: 1.5
+  <CanInteract>k__BackingField: 1
   <InteractText>k__BackingField: Workbench
   <HighlightRenderer>k__BackingField: {fileID: 5385137656525568040}
   OnInteract:
@@ -14364,6 +14397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InteractRange>k__BackingField: 1.5
+  <CanInteract>k__BackingField: 1
   <InteractText>k__BackingField: Spray Blue
   <HighlightRenderer>k__BackingField: {fileID: 4492892261973869810}
   OnInteract:
