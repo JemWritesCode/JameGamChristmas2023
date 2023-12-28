@@ -39,10 +39,15 @@ namespace JameGam {
 
       RandomizeItemScale(item);
       RandomizeItemColor(item);
+      RandomizeItemRotation(item);
 
       if (item.TryGetComponent(out Rigidbody rigidbody)) {
         AddRandomForce(rigidbody);
       }
+    }
+
+    void RandomizeItemRotation(GameObject item) {
+      item.transform.Rotate(new(0f, 1.0f, 0f), Random.Range(0f, 360.0f));
     }
 
     void RandomizeItemScale(GameObject item) {
